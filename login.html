@@ -5,8 +5,6 @@
     <meta charset="utf-8">
     <title>Iniciar Sesion - FERREtian</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -24,82 +22,28 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    <style>
-        .content-login{
-            /* margin-top: 10%; */
-            width: 33%;
-            min-height: 90%;
-            margin-left: auto;
-            margin-right: auto;
-            /*border: 2px solid black;*/
-
-            /* border-radius: 20px;
-            box-shadow: 4px 4px 8px #000000; */
-
-            padding: 20px;
-            background-color: #393e46;
-        }
-        .content-login img{
-            width: 80%;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .form_add{
-            display: flex;
-            /* justify-content: flex-end; */
-            font-size: 12px;
-            color: black;
-        }
-        .form_add:hover{
-            color: #258BB5;
-        }
-        .form_camp{
-            border: 0;
-            border-bottom: 1px solid #258BB5;
-            background-color: #F4F4F4;
-            display: flex;
-            margin-top: 2px;
-        }
-        .form_submit{
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 25px;
-
-            border-radius: 6px;
-            background-color: #29a19c;
-            border: 2px solid #29a19c;
-            color: black;
-            font-size: 18px;
-            padding: 8px;
-            cursor: pointer;
-        }
-        .form_submit:hover{
-            background-color: lightgray;
-            border: 2px solid #29a19c;
-            color: #29a19c;
-        }
-    </style>
+    <link href="css/stylePropio.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="body_login">
 
-    <!-- <center> -->
-    <div class="content-login cuadro-login">
-        <img src="./public/img/login.png" alt="login image">
-        <div class="form_main">
+    
+    <div class="content_login cuadro-login">
+        <div class="centrado">
+            <img src="./img/LogoLogin.png" alt="login image">
+            <div class="form_main contact-form">
+                <form action="" method="POST">
+                    <label for="att_usuario">Usuario:</label>
+                    <input type="text" name="username" class="form_camp form-control" required>
+                    <label for="att_password">Contraseña:</label>
+                    <input type="password" name="password" class="form_camp form-control" required>
+    
+                    <input type="submit" name="submit" class="form_submit" value="Iniciar Sesion">
 
-            <form action="" method="POST">
-                <label for="att_usuario">Usuario:</label>
-                <input type="text" name="username" class="form_camp" required>
-                <label for="att_password">Contraseña:</label>
-                <input type="password" name="password" class="form_camp" required>
-                
-                <p> No tenes cuenta? <a href="#">Registrate</a></p>
-
-                <input type="submit" name="submit" class="form_submit" value="Enviar 🡺">
-            </form>
+                    
+                    <p class="no_cuenta"> No tenes cuenta? <a href="#">Registrate</a></p>
+                </form>
+            </div>
         </div>
     </div>
 
