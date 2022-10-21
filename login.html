@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Iniciar Sesion - FERREtian</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .content-login{
+            /* margin-top: 10%; */
+            width: 33%;
+            min-height: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            /*border: 2px solid black;*/
+
+            /* border-radius: 20px;
+            box-shadow: 4px 4px 8px #000000; */
+
+            padding: 20px;
+            background-color: #393e46;
+        }
+        .content-login img{
+            width: 80%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .form_add{
+            display: flex;
+            /* justify-content: flex-end; */
+            font-size: 12px;
+            color: black;
+        }
+        .form_add:hover{
+            color: #258BB5;
+        }
+        .form_camp{
+            border: 0;
+            border-bottom: 1px solid #258BB5;
+            background-color: #F4F4F4;
+            display: flex;
+            margin-top: 2px;
+        }
+        .form_submit{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 25px;
+
+            border-radius: 6px;
+            background-color: #29a19c;
+            border: 2px solid #29a19c;
+            color: black;
+            font-size: 18px;
+            padding: 8px;
+            cursor: pointer;
+        }
+        .form_submit:hover{
+            background-color: lightgray;
+            border: 2px solid #29a19c;
+            color: #29a19c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <center> -->
+    <div class="content-login cuadro-login">
+        <img src="./public/img/login.png" alt="login image">
+        <div class="form_main">
+
+            <form action="" method="POST">
+                <label for="att_usuario">Usuario:</label>
+                <input type="text" name="username" class="form_camp" required>
+                <label for="att_password">Contraseña:</label>
+                <input type="password" name="password" class="form_camp" required>
+                
+                <p> No tenes cuenta? <a href="#">Registrate</a></p>
+
+                <input type="submit" name="submit" class="form_submit" value="Enviar 🡺">
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
