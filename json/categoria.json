@@ -1,0 +1,17 @@
+[
+    {
+        "categoriaId":1,
+        "categoriaNombre":"Repuestos",
+        "categoriaPadre":0
+    },
+    {
+        "categoriaId":2,
+        "categoriaNombre":"Herramientas",
+        "categoriaPadre":0
+    },
+    {
+        "categoriaId":3,
+        "categoriaNombre":"Herramientas Electricas",
+        "categoriaPadre":2
+    }
+]

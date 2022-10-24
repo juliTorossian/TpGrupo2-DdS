@@ -4,25 +4,19 @@
     
     class monedaDAO{
 
-        public static $FILE_MON    = './json/moneda.json';
-
         public static function cargarMonedas(){
+            $FILE_MON = './json/moneda.json';
             
-            global $mysqli;
+            $json = file_get_contents($FILE_MON);
+            $resultado = json_decode($json, true);
 
-            $stmt = $mysqli->prepare("SELECT * FROM moneda");
-            $stmt->execute();
+            foreach ($resultado as $moneda) {
+                $monId      = $moneda['monId'];
+                $monNombre  = $moneda['monNom'];
+                $monSimbolo = $moneda['monSim'];
+                $monDivisa  = $moneda['monDiv'];
 
-            $resultado   = $stmt->get_result();
-            $monedas  = array();
-
-            while($moneda = $resultado->fetch_assoc()){
-                $monId      = $moneda['monedaId'];
-                $monNombre  = $moneda['moendaNombre'];
-                $monSimbolo = $moneda['monedaSimbolo'];
-                // $monDivisa  = $moneda['monDivisa'];
-
-                $monedas[] = new moneda($monId, $monSimbolo, $monNombre, 0);
+                $monedas[] = new moneda($monId, $monSimbolo, $monNombre, $monDivisa);
             }
             return $monedas;
         }

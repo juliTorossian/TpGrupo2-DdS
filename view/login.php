@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="./public/img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,12 +17,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="./public/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="./public/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/stylePropio.css" rel="stylesheet">
+    <link href="./public/css/style.css" rel="stylesheet">
+    <link href="./public/css/stylePropio.css" rel="stylesheet">
 </head>
 
 <body class="body_login">
@@ -30,18 +30,18 @@
     
     <div class="content_login cuadro-login">
         <div class="centrado">
-            <img src="./img/LogoLogin.png" alt="login image">
+            <img src="./public/img/LogoLogin.png" alt="login image">
             <div class="form_main contact-form">
-                <form action="" method="POST">
-                    <label for="att_usuario">Usuario:</label>
-                    <input type="text" name="username" class="form_camp form-control" required>
-                    <label for="att_password">Contraseña:</label>
-                    <input type="password" name="password" class="form_camp form-control" required>
+                <form action="index.php?controller=usuarioCON&action=login" method="POST">
+                    <label for="usuNombre">Usuario:</label>
+                    <input type="text" name="usuNombre" class="form_camp form-control" required>
+                    <label for="usuPass">Contraseña:</label>
+                    <input type="password" name="usuPass" class="form_camp form-control" required>
     
                     <input type="submit" name="submit" class="form_submit" value="Iniciar Sesion">
 
                     
-                    <p class="no_cuenta"> No tenes cuenta? <a href="#">Registrate</a></p>
+                    <p class="no_cuenta"> No tenes cuenta? <a href="index.php?controller=usuarioCON&action=registrar">Registrate</a></p>
                 </form>
             </div>
         </div>

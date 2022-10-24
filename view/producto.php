@@ -9,7 +9,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="./public/img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,20 +19,21 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="./public/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="./public/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="./public/css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
     <!-- Navbar Start -->
-    <div id="nav-placeholder">
+    <!-- <div id="nav-placeholder">
 
-    </div>
+    </div> -->
     <!-- Navbar End -->
+    <?php require("./view/nav.php"); ?>
 
 
     <!-- Breadcrumb Start -->
@@ -40,15 +41,14 @@
         <div class="row px-xl-5">
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="#">Home</a>
-                    <a class="breadcrumb-item text-dark" href="#">Productos</a>
+                    <a class="breadcrumb-item text-dark" href="index.php">Home</a>
+                    <a class="breadcrumb-item text-dark" href="index.php?controller=productoCON&action=verListaProductos">Productos</a>
                     <span class="breadcrumb-item active">Detalle del producto</span>
                 </nav>
             </div>
         </div>
     </div>
     <!-- Breadcrumb End -->
-
 
     <!-- Shop Detail Start -->
     <div class="container-fluid pb-5">
@@ -57,13 +57,7 @@
                 <div id="product-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner bg-light">
                         <div class="carousel-item active">
-                            <img class="w-100 h-100" src="http://lobrunosa.com.ar/634-thickbox_default/amoladora-ang-115mm-g720n-ar-820-w.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="w-100 h-100" src="https://http2.mlstatic.com/D_NQ_NP_929914-MLA43294947945_082020-O.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="w-100 h-100" src="https://http2.mlstatic.com/D_NQ_NP_995279-MLA31155556332_062019-O.webp" alt="Image">
+                            <img class="w-100 h-100" src="<?php echo($producto->proNomImagen);?>" alt="<?php echo($producto->proNombre);?>">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
@@ -77,7 +71,7 @@
 
             <div class="col-lg-7 h-auto mb-30">
                 <div class="h-100 bg-light p-30">
-                    <h3>Amoladora Black & Decker 820w</h3>
+                    <h3><?php echo($producto->proNombre);?></h3>
                     <div class="d-flex mb-3">
                         <div class="text-primary mr-2">
                             <small class="fas fa-star"></small>
@@ -88,58 +82,9 @@
                         </div>
                         <small class="pt-1">(99 Reviews)</small>
                     </div>
-                    <h3 class="font-weight-semi-bold mb-4">$150.00</h3>
-                    <p class="mb-4">La amoladora Black+Decker es una herramienta versátil, que permite realizar diferentes trabajos con una terminación profesional. Por eso, es una excelente opción sumarla a tu taller o caja de herramientas.</p>
-                    <!-- <div class="d-flex mb-3">
-                        <strong class="text-dark mr-3">Sizes:</strong>
-                        <form>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-1" name="size">
-                                <label class="custom-control-label" for="size-1">XS</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-2" name="size">
-                                <label class="custom-control-label" for="size-2">S</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-3" name="size">
-                                <label class="custom-control-label" for="size-3">M</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-4" name="size">
-                                <label class="custom-control-label" for="size-4">L</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-5" name="size">
-                                <label class="custom-control-label" for="size-5">XL</label>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="d-flex mb-4">
-                        <strong class="text-dark mr-3">Colors:</strong>
-                        <form>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="color-1" name="color">
-                                <label class="custom-control-label" for="color-1">Black</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="color-2" name="color">
-                                <label class="custom-control-label" for="color-2">White</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="color-3" name="color">
-                                <label class="custom-control-label" for="color-3">Red</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="color-4" name="color">
-                                <label class="custom-control-label" for="color-4">Blue</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="color-5" name="color">
-                                <label class="custom-control-label" for="color-5">Green</label>
-                            </div>
-                        </form>
-                    </div> -->
+                    <h3 class="font-weight-semi-bold mb-4"><?php echo("$ ".$producto->proPrecio);?></h3>
+                    <p class="mb-4"><?php echo($producto->proDescripcion);?></p>
+
                     <div class="d-flex align-items-center mb-4 pt-2">
                         <div class="input-group quantity mr-3" style="width: 130px;">
                             <div class="input-group-btn">
@@ -156,7 +101,7 @@
                         </div>
                         <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>Añadir al Carrito</button>
                     </div>
-                    <div class="d-flex pt-2">
+                    <!-- <div class="d-flex pt-2">
                         <strong class="text-dark mr-2">Compartir:</strong>
                         <div class="d-inline-flex">
                             <a class="text-dark px-2" href="">
@@ -172,11 +117,11 @@
                                 <i class="fab fa-pinterest"></i>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
-        <div class="row px-xl-5">
+        <!-- <div class="row px-xl-5">
             <div class="col">
                 <div class="bg-light p-30">
                     <div class="nav nav-tabs mb-4">
@@ -287,7 +232,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <!-- Shop Detail End -->
 
@@ -431,10 +376,11 @@
 
 
     <!-- Footer Start -->
-    <div id="footer-placeholder">
+    <!-- <div id="footer-placeholder">
 
-    </div>
+    </div> -->
     <!-- Footer End -->
+    <?php require("./view/footer.php"); ?>
 
 
     <!-- Back to Top -->
@@ -444,15 +390,11 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+    <script src="./public/lib/easing/easing.min.js"></script>
+    <script src="./public/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="./public/js/main.js"></script>
 
     <script>
         $(function(){

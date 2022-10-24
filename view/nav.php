@@ -13,16 +13,14 @@
     </div> -->
     <div class="row bg-light py-3 px-xl-5 d-none d-lg-flex">
         <div class="col-lg-4 col-6 text-left">
-            <form action="">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Buscar productos...">
-                    <div class="input-group-append">
-                        <span class="input-group-text bg-transparent text-primary">
-                            <i class="fa fa-search"></i>
-                        </span>
-                    </div>
+            <div class="input-group">
+                <input type="text" class="form-control" id="busqueda" placeholder="Buscar productos...">
+                <div class="input-group-append">
+                    <button onclick="buscar()" class="input-group-text bg-transparent text-primary">
+                        <i class="fa fa-search"></i>
+                    </button>
                 </div>
-            </form>
+            </div>
         </div>
         <div class="col-lg-4 text-center">
             <a href="" class="text-decoration-none">
@@ -37,8 +35,8 @@
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Cuenta</button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">Logearse</button>
-                            <button class="dropdown-item" type="button">Registrarse</button>
+                            <a href="index.php?controller=usuarioCON&action=login" class="dropdown-item" type="button">Logearse</a>
+                            <a href="index.php?controller=usuarioCON&action=registrar" class="dropdown-item" type="button">Registrarse</a>
                         </div>
                     </div>
                     <div class="btn-group mx-2">
@@ -49,14 +47,14 @@
                             <button class="dropdown-item" type="button">CAD</button>
                         </div>
                     </div>
-                    <div class="btn-group">
+                    <!-- <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">ES</button>
                         <div class="dropdown-menu dropdown-menu-right">
                             <button class="dropdown-item" type="button">EN</button>
                             <button class="dropdown-item" type="button">FR</button>
                             <button class="dropdown-item" type="button">RU</button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="d-inline-flex align-items-center d-block d-lg-none">
                     <a href="" class="btn px-0 ml-2">
@@ -93,10 +91,19 @@
                             <a href="" class="dropdown-item">Baby's Dresses</a>
                         </div>
                     </div> -->
-                    <a href="" class="nav-item nav-link">Pinturas</a>
+                    <!-- <a href="" class="nav-item nav-link">Pinturas</a>
                     <a href="" class="nav-item nav-link">Herramientas</a>
                     <a href="" class="nav-item nav-link">Construcción</a>
-                    <a href="" class="nav-item nav-link">Hogar, muebles y jardín</a>
+                    <a href="" class="nav-item nav-link">Hogar, muebles y jardín</a> -->
+                    <?php
+                    foreach ($categorias as $key => $categoria) {
+                        
+                    ?>
+                        <a href="index.php?controller=productoCON&action=verProductosPorCategoria&categoriaId=<?php echo($categoria->cateId);?>" class="nav-item nav-link"><?php echo($categoria->cateNombre); ?></a>
+                    <?php
+
+                    }
+                    ?>
                 </div>
             </nav>
         </div>
@@ -111,34 +118,16 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="shop.html" class="nav-item nav-link">Productos</a>
-                        <a href="shop.html" class="nav-item nav-link">Ofertas</a>
-                        <!-- <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">CATEGORIAS <i class="fa fa-angle-down mt-1"></i></a>
-                            <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                <a href="#" class="dropdown-item">CATEGORIA 1</a>
-                                <a href="#" class="dropdown-item">CATEGORIA 2</a>
-                                <a href="#" class="dropdown-item">CATEGORIA 3</a>
-                            </div>
-                        </div> -->
-                        <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                        <a href="index.php" class="nav-item nav-link active">Home</a>
+                        <a href="index.php?controller=productoCON&action=verListaProductos" class="nav-item nav-link">Productos</a>
+                        <a href="index.php?controller=productoCON&action=verListaProductos" class="nav-item nav-link">Ofertas</a>
+                        <a href="contact.php" class="nav-item nav-link">Contacto</a>
                     </div>
-                    <!-- <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-                        <a href="" class="btn px-0">
-                            <i class="fas fa-heart text-primary"></i>
-                            <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
-                        </a>
-                        <a href="" class="btn px-0 ml-3">
-                            <i class="fas fa-shopping-cart text-primary"></i>
-                            <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
-                        </a>
-                    </div> -->
                 </div>
                 <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                     <a href="" class="btn px-0">
                         <i class="fas fa-heart text-primary"></i>
-                        <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                        <!-- <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span> -->
                     </a>
                     <a href="" class="btn px-0 ml-3">
                         <i class="fas fa-shopping-cart text-primary"></i>
@@ -150,3 +139,5 @@
     </div>
 </div>
 <!-- Navbar End -->
+
+<script src="./public/js/buscador.js"></script>

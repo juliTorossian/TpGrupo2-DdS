@@ -9,7 +9,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="public/img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,30 +19,30 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="public/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="public/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/stylePropio.css" rel="stylesheet">
+    <link href="public/css/style.css" rel="stylesheet">
+    <link href="public/css/stylePropio.css" rel="stylesheet">
 </head>
 
 <body class="body_login">
 
     <!-- <center> -->
     <div class="content_login cuadro-login">
-        <img src="./img/LogoLogin.png" style="margin-top: 10%;" alt="login image">
+        <img src="./public/img/LogoLogin.png" style="margin-top: 10%;" alt="login image">
         <h2 class="mt-5" style="text-align: center; color: #ffd333;"> Registro de usuario</h2>
         <div class="contact-form p-30 " style="color: black; text-align: center;">
-            <form action="" method="post">
+            <form action="./index.php?controller=usuarioCON&action=registrar" method="post">
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
-                      <label for="att_nombre">Nombre</label>
-                      <input type="text" class="form-control" id="att_nombre" placeholder="Nombre" required>
+                      <label for="usuNombre">Nombre</label>
+                      <input type="text" class="form-control" id="usuNombre" name="usuNombre" placeholder="Nombre" required>
                     </div>
                     <div class="col-md-6 mb-3">
-                      <label for="att_apellido">Apellido</label>
-                      <input type="text" class="form-control" id="att_apellido" placeholder="Apellido" required>
+                      <label for="usuApellido">Apellido</label>
+                      <input type="text" class="form-control" id="usuApellido" name="usuApellido" placeholder="Apellido" required>
                       <div class="valid-feedback">
                         Looks good!
                       </div>
@@ -50,16 +50,16 @@
                 </div>
                 <div class="form-row">
                     <div class="col-md-10 mx-auto mt-2">
-                        <label for="att_email">Email</label>
-                        <input type="email" class="form-control" id="att_email" placeholder="Correo@mail.com.ar" required>
+                        <label for="usuMail">Email</label>
+                        <input type="email" class="form-control" id="usuMail" name="usuMail" placeholder="Correo@mail.com.ar" required>
                     </div>
                     <div class="col-md-10 mx-auto mt-2">
-                        <label for="att_pass">Contraseña</label>
-                        <input type="password" class="form-control" name="att_pass" id="att_pass" placeholder="Contraseña" required>
+                        <label for="usuPass">Contraseña</label>
+                        <input type="password" class="form-control" name="usuPass" id="usuPass" placeholder="Contraseña" required>
                     </div>
                     <div class="col-md-10 mx-auto mt-2">
-                        <label for="att_pass_confirm">Confirmar contraseña</label>
-                        <input type="password" class="form-control" name="att_pass_confirm" id="att_pass_confirm" placeholder="Confirma contraseña" required>
+                        <label for="usuPassConfirm">Confirmar contraseña</label>
+                        <input type="password" class="form-control" name="usuPassConfirm" id="usuPassConfirm" placeholder="Confirma contraseña" required>
                     </div>
                 </div>
                 <button class="btn btn-primary mt-5" type="submit">Registrarse</button>
@@ -88,6 +88,6 @@
 
 </body>
 
-<script src="./js/controlPass.js"></script>
+<!-- <script src="./public/js/controlPass.js"></script> -->
 
 </html>

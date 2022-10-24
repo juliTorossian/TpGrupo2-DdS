@@ -2,22 +2,17 @@
 
 class CategoriaDAO{
 
-        public static $FILE_CAT    = './json/categoria.json';
-
         public static function cargarCategorias(){
-            global $mysqli;
+            $FILE_CAT = './json/categoria.json';
+            
+            $json = file_get_contents($FILE_CAT);
+            $resultado = json_decode($json, true);
 
-            $stmt = $mysqli->prepare("SELECT * FROM categoria");
-            $stmt->execute();
-
-            $resultado   = $stmt->get_result();
-            $categorias = array();
-
-            while($categoria = $resultado->fetch_assoc()){
+            foreach ($resultado as $categoria) {
                 $categoriaId        = $categoria['categoriaId'];
-                $categoriaNombre    = $categoria['categoriaDescripcion'];
+                $categoriaNombre    = $categoria['categoriaNombre'];
                 // $categoriaTieneSub  = $categoria['categoriaTieneSub'];
-                $categoriaPadre     = $categoria['categoriaCatePadre'];
+                $categoriaPadre     = $categoria['categoriaPadre'];
 
                 $categorias[] = new Categoria($categoriaId, $categoriaPadre, $categoriaNombre, 'N');
             }
@@ -32,11 +27,11 @@ class CategoriaDAO{
         public $cateNombre;
         public $tieneSub;
 
-        public function __construct($id, $padre, $nombre, $tieneSub){
+        public function __construct($id, $padre, $nombre){
             $this->cateId     = $id;
             $this->catePadre  = $padre;
             $this->cateNombre = $nombre;
-            $this->tieneSub   = ($tieneSub == 'S');
+            // $this->tieneSub   = ($tieneSub == 'S');
         }
 
     }

@@ -1,0 +1,11 @@
+[
+    {
+        "productoId":1,
+        "productoDescripcion":"Flotante para tanque de agua",
+        "productoNombre":"Flotante para tanque",
+        "productoImagen":"https://canoplast.com/wp-content/uploads/2021/07/Waterplast-Flotante.jpg",
+        "productoPrecio":1500,
+        "productoStock":10,
+        "categoriaId":1
+    }
+]

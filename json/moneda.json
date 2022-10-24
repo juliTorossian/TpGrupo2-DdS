@@ -1,0 +1,14 @@
+[
+    {
+        "monId": 1,
+        "monNom": "pesos",
+        "monSim": "ARS$",
+        "monDiv": 1
+    },
+    {
+        "monId": 2,
+        "monNom": "Dolar Estadounidense",
+        "monSim": "U$S",
+        "monDiv": 300
+    }
+]

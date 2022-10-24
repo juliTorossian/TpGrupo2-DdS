@@ -1,16 +1,17 @@
 <?php
     require_once("./model/UsuarioDAO.php");
-    require_once('./model/productoDAO.php');
+    // require_once('./model/productoDAO.php');
     require_once('./model/categoriaDAO.php');
     require_once('./model/monedaDAO.php');
-    require_once('./model/favoritoDAO.php');
+    // require_once('./model/favoritoDAO.php');
     
     class UsuarioCON {
 
         function login(){
+            // echo '<pre>'; print_r($_POST); echo '</pre>';
             if(isset($_POST['usuNombre']) && isset($_POST['usuPass'])){
                 if(!empty($_POST['usuNombre']) && !empty($_POST['usuPass'])){
-                    echo(UsuarioDAO::existeUsuario($_POST['usuNombre'], $_POST['usuPass']));
+                    // echo(UsuarioDAO::existeUsuario($_POST['usuNombre'], $_POST['usuPass']));
                     if(UsuarioDAO::existeUsuario($_POST['usuNombre'], $_POST['usuPass'])){
                         $_SESSION['usuNombre'] = $_POST['usuNombre'];
                         header('Location: ./index.php');
@@ -29,12 +30,15 @@
         }
 
         function registrar(){
+
+            // echo '<pre>'; print_r($_POST); echo '</pre>';
+
             if(isset($_POST['usuNombre']) && isset($_POST['usuPass'])){
                 if(!empty($_POST['usuNombre']) && !empty($_POST['usuPass'])){
                     // if(!UsuarioDAO::nombreDeUsuarioOcupado($_POST['usuNombre'])){
                     UsuarioDAO::crearUsuario($_POST['usuNombre'], $_POST['usuApellido'], $_POST['usuPass'], $_POST['usuMail']);
                     $_SESSION['usuNombre'] = $_POST['usuNombre'];
-                    header('Location: ./index.php');
+                    header('Location: ./index.php?controller=usuarioCON&action=login');
                     // }else{
                     //     $_SESSION["error"] = "El usuario ya existe";
                     //     require_once("./view/register.php");
@@ -45,7 +49,7 @@
                 }
             }else{
                 $_SESSION['error'] = 'Campos Incorrectos';
-                require_once('./view/register.php');
+                require_once('./view/registro.php');
             }
         }
 
