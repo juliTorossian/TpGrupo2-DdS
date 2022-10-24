@@ -1,0 +1,7 @@
+# Ignora todos los archivos con -ing
+
+*-ing*
+
+# Ignora los archivis de conexion con la BD
+
+conn.php
