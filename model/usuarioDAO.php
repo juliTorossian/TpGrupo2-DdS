@@ -1,6 +1,6 @@
 <?php
 
-    include('./conn.php');
+    // include('./conn.php');
 
     class UsuarioDAO{
 
@@ -17,6 +17,25 @@
 
                 if ($usuario == $usuUsuario && $pass == $usuPass){
                     $return = true;
+                }
+
+            }
+
+            return $return;
+        }
+
+        public static function usuarioIdXNombre($usuario){
+            $FILE_USU = './json/usuario.json';
+            $return = null;
+
+            $usu_json = file_get_contents($FILE_USU);
+            $usuarios = json_decode($usu_json, true);
+            
+            foreach($usuarios as $usu) {
+                $usuUsuario = $usu['usuario'];
+
+                if ($usuario == $usuUsuario){
+                    $return = $usu['id'];
                 }
 
             }

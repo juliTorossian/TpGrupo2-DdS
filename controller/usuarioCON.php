@@ -13,7 +13,7 @@
                 if(!empty($_POST['usuNombre']) && !empty($_POST['usuPass'])){
                     // echo(UsuarioDAO::existeUsuario($_POST['usuNombre'], $_POST['usuPass']));
                     if(UsuarioDAO::existeUsuario($_POST['usuNombre'], $_POST['usuPass'])){
-                        $_SESSION['usuNombre'] = $_POST['usuNombre'];
+                        $_SESSION['usuario'] = UsuarioDAO::usuarioIdXNombre($_POST['usuNombre']);
                         header('Location: ./index.php');
                     }else{
                         $_SESSION['error'] = 'Usuario Incorrecto';
