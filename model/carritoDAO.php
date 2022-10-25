@@ -36,6 +36,21 @@
             return $a_productos_carrito;
         }
 
+        public static function agreagarProductoAlCarrito($usuario, $productoId){
+            $FILE_CAR = './json/carrito.json';
+            $FILE_PRO = './json/producto.json';
+
+            $json = file_get_contents($FILE_CAR);
+            $carritos = json_decode($json, true);
+
+            $json = file_get_contents($FILE_PRO);
+            $productos = json_decode($json, true);
+            $a_productos_carrito = array();
+
+            
+
+        }
+
         public static function realizarCompra($compra, $usuario){
 
             global $mysqli;
