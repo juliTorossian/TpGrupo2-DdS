@@ -15,7 +15,8 @@
                          'footer'         => ['agregarSub'],
                          'carritoCON'     => ['miCarrito', 'realizarCompra'],
                          'favoritoCON'    => ['favoritos', 'favoritosOnly', 'eliminarProductoCarrito', 'agregarProductoCarrito'],
-                         'compraCON'      => ['compraHis', 'compraHisOnly']
+                         'compraCON'      => ['compraHis', 'compraHisOnly'],
+                         'pedidoCON'      => ['nuevoPedido']
                         );
 
     if (array_key_exists($controller, $controllers)){

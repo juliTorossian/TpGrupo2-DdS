@@ -178,7 +178,7 @@ class Carrito{
         }else{
             producto = e.target.parentElement.parentElement;
         }
-        console.log(producto);
+        // console.log(producto);
 
         const infoProducto = {
             usuario:  producto.querySelector('#nomPro').getAttribute('usuario'),
@@ -189,27 +189,60 @@ class Carrito{
             cantidad: producto.querySelector('#sCant').value
         }
 
-        console.log(infoProducto);
+        // console.log(infoProducto);
         
         // console.log(this.existeProductoLS(infoProducto.id));
-        if(this.existeProductoLS(infoProducto.id, infoProducto.usuario)){
-            Swal.fire({
-                //type: 'info',
-                title: 'Oops...',
-                text: 'El producto ya está agregado',
-                showConfirmButton: false,
-                timer: 2000
-            })
-            // console.log('Ya existe el producto');
-        }
-        else {
-            if(parseInt(infoProducto.cantidad) < 1){
-                // console.log('la cantidad no puede ser 0');
-            }else{
-                //this.insertarCarrito(infoProducto);
-                this.guardarProductosLocalStorage(infoProducto, origen);
-                // console.log('Producto Insertado en el carrito');
+
+        if (infoProducto.usuario > 0){
+            if(this.existeProductoLS(infoProducto.id, infoProducto.usuario)){
+                Swal.fire({
+                    //type: 'info',
+                    title: 'Oops...',
+                    text: 'El producto ya está agregado',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+                // console.log('Ya existe el producto');
             }
+            else {
+                if(parseInt(infoProducto.cantidad) < 1){
+                    // console.log('la cantidad no puede ser 0');
+                }else{
+                    //this.insertarCarrito(infoProducto);
+                    this.guardarProductosLocalStorage(infoProducto, origen);
+                    // console.log('Producto Insertado en el carrito');
+                }
+            }
+        }else{
+            // Swal.fire({
+            //     //type: 'info',
+            //     title: 'Oops...',
+            //     text: 'Debes ingresar a tu cuenta para hacer esto',
+            //     showConfirmButton: false,
+            //     timer: 2000
+            // })
+            Swal.fire({
+                title: 'Oops...',
+                text: "Debes ingresar a tu cuenta para hacer esto",
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Iniciar Sesion'
+            }).then((result) => {
+                //si desea, eliminarlo
+                // if (result.isConfirmed) {
+                //     this.eliminarProductoLocalStorage(idProducto);
+                //     Swal.fire(
+                //     'Eliminado!',
+                //     'Producto eliminado del carrito',
+                //     'success'
+                //     )
+                // }
+                // if(this.filename() === 'index.php?controller=carritoCON&action=miCarrito'){
+                //     this.actualizarProductosEnCarrito(e,usuario);
+                // }
+                window.location.href = "index.php?controller=usuarioCON&action=login";
+            })
         }
     }
 

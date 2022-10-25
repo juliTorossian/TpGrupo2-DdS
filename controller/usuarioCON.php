@@ -37,7 +37,7 @@
                 if(!empty($_POST['usuNombre']) && !empty($_POST['usuPass'])){
                     // if(!UsuarioDAO::nombreDeUsuarioOcupado($_POST['usuNombre'])){
                     UsuarioDAO::crearUsuario($_POST['usuNombre'], $_POST['usuApellido'], $_POST['usuPass'], $_POST['usuMail']);
-                    $_SESSION['usuNombre'] = $_POST['usuNombre'];
+                    $_SESSION['usuario'] = $_POST['usuNombre'];
                     header('Location: ./index.php?controller=usuarioCON&action=login');
                     // }else{
                     //     $_SESSION["error"] = "El usuario ya existe";
@@ -54,32 +54,32 @@
         }
 
         function cerrarsesion(){
-            if(isset($_SESSION['usuNombre'])){
-                unset($_SESSION["usuNombre"]);
+            if(isset($_SESSION['usuario'])){
+                unset($_SESSION["usuario"]);
                 header('Location: ./index.php');
             }
         }
 
         function miCuenta(){
-            if(!isset($_SESSION['usuNombre'])){
+            if(!isset($_SESSION['usuario'])){
                 header('Location: ./index.php?controller=UsuarioCON&action=login');
             }else{
                 $categorias = CategoriaDAO::cargarCategorias();
-                $usuario    = UsuarioDAO::datosUsuario($_SESSION['usuNombre']);
+                $usuario    = UsuarioDAO::datosUsuario($_SESSION['usuario']);
                 $monedas    = monedaDAO::cargarMonedas();
                 require_once('./view/miCuenta.php');
             }
         }
 
         // function cambiarContrasenia(){
-        //     return UsuarioDAO::cambiarContrasenia($_SESSION['usuNombre'], $_POST['newusuPass']);
+        //     return UsuarioDAO::cambiarContrasenia($_SESSION['usuario'], $_POST['newusuPass']);
         // }
         function veficarContrasenia(){
-            echo(UsuarioDAO::existeUsuario($_SESSION['usuNombre'], $_POST['usuPass'])) ;
+            echo(UsuarioDAO::existeUsuario($_SESSION['usuario'], $_POST['usuPass'])) ;
         }
 
         function misCompras(){
-            if(!isset($_SESSION['usuNombre'])){
+            if(!isset($_SESSION['usuario'])){
                 header('Location: ./index.php?controller=UsuarioCON&action=login');
             }else{
                 $categorias = CategoriaDAO::cargarCategorias();

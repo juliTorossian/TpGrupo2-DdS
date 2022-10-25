@@ -35,8 +35,18 @@
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Cuenta</button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="index.php?controller=usuarioCON&action=login" class="dropdown-item" type="button">Logearse</a>
-                            <a href="index.php?controller=usuarioCON&action=registrar" class="dropdown-item" type="button">Registrarse</a>
+                            <?php
+                            if (isset($_SESSION['usuario'])){
+                            ?>
+                                <a href="index.php?controller=usuarioCON&action=cerrarsesion" class="dropdown-item" type="button">Cerrar Sesion</a>
+                            <?php
+                            }else{
+                            ?>
+                                <a href="index.php?controller=usuarioCON&action=login" class="dropdown-item" type="button">Logearse</a>
+                                <a href="index.php?controller=usuarioCON&action=registrar" class="dropdown-item" type="button">Registrarse</a>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                     <div class="btn-group mx-2">

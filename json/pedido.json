@@ -1,0 +1,17 @@
+[
+    {
+        "pedId": "",
+        "pedUsuario":1,
+        "pedImporte":1500,
+        "pedFecha": "2022-10-25",
+        "pedEstado": "P",
+        "pedRetira": "S",
+        "pedProductos":[
+            {
+                "productoId": 1,
+                "productoCant": 1,
+                "productoPrecio": 1500
+            }
+        ]
+    }
+]

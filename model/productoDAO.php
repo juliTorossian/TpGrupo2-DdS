@@ -242,8 +242,10 @@
                     $prdNomImg    = $producto['productoImagen'];
                     $prdStock     = $producto['productoStock'];
                     $prdCategoria = $producto['categoriaId'];
+                    $prdNuevo     = $producto['nuevo'];
+                    $prdDescuento = $producto['destacado'];
 
-                    $productos[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock);
+                    $productos[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
                 }
             }
             return $productos;
