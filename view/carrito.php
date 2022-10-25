@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>MultiShop - Online Shop Website Template</title>
+    <title>Mi Carrito - FERREtian</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -26,7 +26,7 @@
     <link href="./public/css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="mostrarProductosEnCarrito(<?php echo($usuario);?>)">
     
     <!-- Navbar Start -->
     <!-- <div id="nav-placeholder">
@@ -42,8 +42,8 @@
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
                     <a class="breadcrumb-item text-dark" href="#">Home</a>
-                    <a class="breadcrumb-item text-dark" href="#">Shop</a>
-                    <span class="breadcrumb-item active">Shopping Cart</span>
+                    <a class="breadcrumb-item text-dark" href="#">Productos</a>
+                    <span class="breadcrumb-item active">Mi Carrito</span>
                 </nav>
             </div>
         </div>
@@ -65,16 +65,16 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody class="align-middle">
+                    <tbody class="align-middle productos"  id="div-cards">
 
                         <?php
-                        echo '<pre>'; print_r($productos); echo '</pre>';
-                        if (count($productos) > 0){
-                            foreach ($productos as $key => $producto) {
+                        // echo '<pre>'; print_r($productos); echo '</pre>';
+                        // if (count($productos) > 0){
+                        //     foreach ($productos as $key => $producto) {
                         ?>
-                                <tr>
-                                    <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;"><?php echo($producto->proNombre); ?></td>
-                                    <td class="align-middle"><?php echo("$ ".$producto->proPrecio); ?></td>
+                                <!-- <tr>
+                                    <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;"><?php //echo($producto->proNombre); ?></td>
+                                    <td class="align-middle"><?php //echo("$ ".$producto->proPrecio); ?></td>
                                     <td class="align-middle">
                                         <div class="input-group quantity mx-auto" style="width: 100px;">
                                             <div class="input-group-btn">
@@ -82,7 +82,7 @@
                                                 <i class="fa fa-minus"></i>
                                                 </button>
                                             </div>
-                                            <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="<?php echo($producto->proCantCarrito); ?>">
+                                            <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="<?php //echo($producto->proCantCarrito); ?>">
                                             <div class="input-group-btn">
                                                 <button class="btn btn-sm btn-primary btn-plus">
                                                     <i class="fa fa-plus"></i>
@@ -90,16 +90,16 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="align-middle"><?php echo("$ ".($producto->proPrecio * $producto->proCantCarrito)); ?></td>
+                                    <td class="align-middle"><?php //echo("$ ".($producto->proPrecio * $producto->proCantCarrito)); ?></td>
                                     <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                                </tr>
+                                </tr> -->
                         <?php
-                            }
-                        }else{
+                            // }
+                        // }else{
                         ?>
-                            <tr colspan="5"><p>Carrito vacio</p></tr>
+                            <!-- <tr colspan="5"><p>Carrito vacio</p></tr> -->
                         <?php
-                        }
+                        // }
                         ?>
                         <!-- <tr>
                             <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;"> Product Name</td>
@@ -212,30 +212,30 @@
             <div class="col-lg-4">
                 <form class="mb-30" action="">
                     <div class="input-group">
-                        <input type="text" class="form-control border-0 p-4" placeholder="Coupon Code">
+                        <input type="text" class="form-control border-0 p-4" placeholder="Codigo">
                         <div class="input-group-append">
-                            <button class="btn btn-primary">Apply Coupon</button>
+                            <button class="btn btn-primary">Aplicar cupón</button>
                         </div>
                     </div>
                 </form>
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Cart Summary</span></h5>
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Resumen</span></h5>
                 <div class="bg-light p-30 mb-5">
                     <div class="border-bottom pb-2">
                         <div class="d-flex justify-content-between mb-3">
                             <h6>Subtotal</h6>
-                            <h6>$150</h6>
+                            <h6 id="preSubTotal">$ 0</h6>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">Shipping</h6>
-                            <h6 class="font-weight-medium">$10</h6>
+                            <h6 class="font-weight-medium">Envio</h6>
+                            <h6 class="font-weight-medium">$ 0</h6>
                         </div>
                     </div>
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Total</h5>
-                            <h5>$160</h5>
+                            <h5 id="preTotal">$ 0</h5>
                         </div>
-                        <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout</button>
+                        <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Finalizar compra</button>
                     </div>
                 </div>
             </div>
@@ -264,6 +264,10 @@
 
     <!-- Template Javascript -->
     <script src="./public/js/main.js"></script>
+
+    <script src="./public/js/carrito.js"></script>  
+    <script src="./public/js/pedido.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         $(function(){

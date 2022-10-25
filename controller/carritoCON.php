@@ -14,6 +14,7 @@
                 $categorias = CategoriaDAO::cargarCategorias();
                 $monedas    = monedaDAO::cargarMonedas();
                 $productos  = carritoDAO::cargarProductosCarritoPorUsuario($_SESSION['usuario']);
+                $usuario    = (isset($_SESSION['usuario'])) ? $_SESSION['usuario'] : null;
                 require_once('./view/carrito.php');
             }
         }

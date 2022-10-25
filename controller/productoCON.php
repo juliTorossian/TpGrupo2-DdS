@@ -11,6 +11,7 @@
             $categorias = CategoriaDAO::cargarCategorias();
             $producto   = ProductoDAO::cargarProductoPorId($_GET['productoId']);
             $monedas    = monedaDAO::cargarMonedas();
+            $usuario    = (isset($_SESSION['usuario'])) ? $_SESSION['usuario'] : null;
             require_once("view/producto.php");
         }
 

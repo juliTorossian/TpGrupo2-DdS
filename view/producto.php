@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>MultiShop - Online Shop Website Template</title>
+    <title> - FERREtian</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -52,12 +52,12 @@
 
     <!-- Shop Detail Start -->
     <div class="container-fluid pb-5">
-        <div class="row px-xl-5">
+        <div class="row px-xl-5 productos">
             <div class="col-lg-5 mb-30">
                 <div id="product-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner bg-light">
                         <div class="carousel-item active">
-                            <img class="w-100 h-100" src="<?php echo($producto->proNomImagen);?>" alt="<?php echo($producto->proNombre);?>">
+                            <img class="w-100 h-100" id="imgPro" src="<?php echo($producto->proNomImagen);?>" alt="<?php echo($producto->proNombre);?>">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
@@ -71,7 +71,7 @@
 
             <div class="col-lg-7 h-auto mb-30">
                 <div class="h-100 bg-light p-30">
-                    <h3><?php echo($producto->proNombre);?></h3>
+                    <h3 id="nomPro" name="<?php echo($producto->productoId);?>" usuario="<?php echo($usuario);?>"><?php echo($producto->proNombre);?></h3>
                     <div class="d-flex mb-3">
                         <div class="text-primary mr-2">
                             <small class="fas fa-star"></small>
@@ -82,24 +82,24 @@
                         </div>
                         <small class="pt-1">(99 Reviews)</small>
                     </div>
-                    <h3 class="font-weight-semi-bold mb-4"><?php echo("$ ".$producto->proPrecio);?></h3>
+                    <h3 class="font-weight-semi-bold mb-4" id="preIndPrd"><?php echo("$ ".$producto->proPrecio);?></h3>
                     <p class="mb-4"><?php echo($producto->proDescripcion);?></p>
 
                     <div class="d-flex align-items-center mb-4 pt-2">
                         <div class="input-group quantity mr-3" style="width: 130px;">
                             <div class="input-group-btn">
-                                <button class="btn btn-primary btn-minus">
+                                <button class="btn btn-primary btn-minus bRestar" name="<?php echo($producto->productoId); ?>">
                                     <i class="fa fa-minus"></i>
                                 </button>
                             </div>
-                            <input type="text" class="form-control bg-secondary border-0 text-center" value="1">
+                            <input type="text" class="form-control bg-secondary border-0 text-center" id="sCant" value="1" name="<?php echo($producto->productoId); ?>">
                             <div class="input-group-btn">
-                                <button class="btn btn-primary btn-plus">
+                                <button class="btn btn-primary btn-plus bSumar" name="<?php echo($producto->productoId); ?>">
                                     <i class="fa fa-plus"></i>
                                 </button>
                             </div>
                         </div>
-                        <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>Añadir al Carrito</button>
+                        <button class="btn btn-primary px-3 comprar"><i class="fa fa-shopping-cart mr-1"></i>Añadir al Carrito</button>
                     </div>
                     <!-- <div class="d-flex pt-2">
                         <strong class="text-dark mr-2">Compartir:</strong>
@@ -395,6 +395,10 @@
 
     <!-- Template Javascript -->
     <script src="./public/js/main.js"></script>
+
+    <script src="./public/js/carrito.js"></script>  
+    <script src="./public/js/pedido.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         $(function(){
