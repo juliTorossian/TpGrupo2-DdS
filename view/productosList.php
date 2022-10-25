@@ -57,7 +57,7 @@
             <!-- Shop Sidebar Start -->
             <div class="col-lg-3 col-md-4">
                 <!-- Price Start -->
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filtrar por precio</span></h5>
+                <!-- <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filtrar por precio</span></h5>
                 <div class="bg-light p-4 mb-30">
                     <form>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
@@ -91,15 +91,14 @@
                             <span class="badge border font-weight-normal">168</span>
                         </div>
                     </form>
-                </div>
+                </div> -->
                 <!-- Price End -->
                 
                 <!-- Color Start -->
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filtrar por categoria</span></h5>
                 <div class="bg-light p-4 mb-30">
-                    <form>
+                    <!-- <form>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" checked id="color-all">
                             <label class="custom-control-label" for="price-all">Herramientas</label>
                             <span class="badge border font-weight-normal">1000</span>
                         </div>
@@ -118,7 +117,23 @@
                             <label class="custom-control-label" for="color-3">Hogar, Muebles y Jardín</label>
                             <span class="badge border font-weight-normal">246</span>
                         </div>
-                    </form>
+                    </form> -->
+
+                    <?php
+                    foreach ($categorias as $key => $categoria) {
+                        $checked = $categoria->cateId == $categoriaSel ? 'checked' : '';
+                    ?>
+                        <a style="color:black;" href="index.php?controller=productoCON&action=verProductosPorCategoria&categoriaId=<?php echo($categoria->cateId);?>">
+                            <div class="custom-control d-flex align-items-center justify-content-between mb-3">
+                                <input type="checkbox" class="custom-control-input" id="color-all" <?php echo($checked);?>>
+                                <label class="custom-control-label"><?php echo($categoria->cateNombre); ?></label>
+                                <span class="badge border font-weight-normal">5</span>
+                            </div>
+                        </a>
+                    <?php
+
+                    }
+                    ?>
                 </div>
                 <!-- Color End -->
             </div>
@@ -203,9 +218,9 @@
                             <ul class="pagination justify-content-center">
                                 <li class="page-item disabled"><a class="page-link" href="#"><<</a></li>
                                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">>></a></li>
+                                <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+                                <li class="page-item disabled"><a class="page-link" href="#">>></a></li>
                             </ul>
                         </nav>                   
                     </div>

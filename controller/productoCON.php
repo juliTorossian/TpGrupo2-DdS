@@ -19,6 +19,7 @@
             $categorias  = CategoriaDAO::cargarCategorias();
             $productos   = ProductoDAO::cargarProductos();
             $monedas     = monedaDAO::cargarMonedas();
+            $categoriaSel= 0;
             require_once("view/productosList.php");
         }
 
@@ -26,6 +27,7 @@
             $categorias  = CategoriaDAO::cargarCategorias();
             // $productos   = ProductoDAO::cargarProductosPorCategoria($_GET['categoriaId']);
             $productos   = ProductoDAO::cargarProductosPorCategoria($_GET['categoriaId']);
+            $categoriaSel= $_GET['categoriaId'];
             $monedas     = monedaDAO::cargarMonedas();
             require_once("view/productosList.php");
         }
