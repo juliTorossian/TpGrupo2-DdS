@@ -23,8 +23,10 @@
                 $prdNomImg    = $producto['productoImagen'];
                 $prdStock     = $producto['productoStock'];
                 $prdCategoria = $producto['categoriaId'];
-
-                $a_productos[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock);
+                $prdNuevo     = $producto['nuevo'];
+                $prdDescuento = $producto['destacado'];
+                
+                $a_productos[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
             }
             return $a_productos;
         }
@@ -103,8 +105,10 @@
                     $prdNomImg    = $prd['productoImagen'];
                     $prdStock     = $prd['productoStock'];
                     $prdCategoria = $prd['categoriaId'];
+                    $prdNuevo     = $prd['nuevo'];
+                    $prdDescuento = $prd['destacado'];
 
-                    $producto = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock);
+                    $producto = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
                 }
                 if ($producto != null){
                     break;
@@ -129,8 +133,60 @@
                     $prdNomImg    = $producto['productoImagen'];
                     $prdStock     = $producto['productoStock'];
                     $prdCategoria = $producto['categoriaId'];
+                    $prdNuevo     = $producto['nuevo'];
+                    $prdDescuento = $producto['destacado'];
 
-                    $productos[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock);
+                    $productos[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
+                }
+            }
+            return $productos;
+        }
+
+        public static function cargarProductosNuevos(){
+            $FILE_PRO = './json/producto.json';
+            
+            $usu_json = file_get_contents($FILE_PRO);
+            $resultado = json_decode($usu_json, true);
+            $productos = array();
+
+            foreach ($resultado as $producto) {
+                if ($producto['nuevo'] == 'S'){
+                    $prdId        = $producto['productoId'];
+                    $prdNombre    = $producto['productoNombre'];
+                    $prdDesc      = $producto['productoDescripcion'];
+                    $prdPrecio    = $producto['productoPrecio'];
+                    $prdNomImg    = $producto['productoImagen'];
+                    $prdStock     = $producto['productoStock'];
+                    $prdCategoria = $producto['categoriaId'];
+                    $prdNuevo     = $producto['nuevo'];
+                    $prdDescuento = $producto['destacado'];
+
+                    $productos[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
+                }
+            }
+            return $productos;
+        }
+
+        public static function cargarProductosDestacados(){
+            $FILE_PRO = './json/producto.json';
+            
+            $usu_json = file_get_contents($FILE_PRO);
+            $resultado = json_decode($usu_json, true);
+            $productos = array();
+
+            foreach ($resultado as $producto) {
+                if ($producto['destacado'] == 'S'){
+                    $prdId        = $producto['productoId'];
+                    $prdNombre    = $producto['productoNombre'];
+                    $prdDesc      = $producto['productoDescripcion'];
+                    $prdPrecio    = $producto['productoPrecio'];
+                    $prdNomImg    = $producto['productoImagen'];
+                    $prdStock     = $producto['productoStock'];
+                    $prdCategoria = $producto['categoriaId'];
+                    $prdNuevo     = $producto['nuevo'];
+                    $prdDescuento = $producto['destacado'];
+
+                    $productos[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
                 }
             }
             return $productos;
@@ -212,7 +268,7 @@
 
         public $categoria;
 
-        public function __construct($id, $nombre, $desc, $precio, $categoria, $nomImg, $cantStock){
+        public function __construct($id, $nombre, $desc, $precio, $categoria, $nomImg, $cantStock, $nuevo, $descuento){
             $this->productoId     = $id;
             $this->proNombre      = $nombre;
             $this->proNomImagen   = $nomImg;
@@ -221,6 +277,8 @@
             $this->proPrecio      = $precio;
             $this->categoria    = $categoria;
             $this->proStock = $cantStock;
+            $this->proNuevo = ($nuevo == 'S');
+            $this->proDescuento = ($descuento == 'S');
         }
 
         public function setNuevo($esNuevo){

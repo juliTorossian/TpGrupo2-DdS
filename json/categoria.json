@@ -13,5 +13,30 @@
         "categoriaId":3,
         "categoriaNombre":"Herramientas Electricas",
         "categoriaPadre":2
+    },
+    {
+        "categoriaId":4,
+        "categoriaNombre":"Herramientas Manuales",
+        "categoriaPadre":2
+    },
+    {
+        "categoriaId":5,
+        "categoriaNombre":"Pinturas",
+        "categoriaPadre":0
+    },
+    {
+        "categoriaId":6,
+        "categoriaNombre":"Patio",
+        "categoriaPadre":0
+    },
+    {
+        "categoriaId":7,
+        "categoriaNombre":"Muebles y Sillas",
+        "categoriaPadre":0
+    },
+    {
+        "categoriaId":8,
+        "categoriaNombre":"Insumos",
+        "categoriaPadre":0
     }
 ]

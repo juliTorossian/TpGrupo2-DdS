@@ -10,16 +10,16 @@ class Carrito{
         // console.log(idProducto);
         // console.log('');
 
-        console.log(e.target.parentElement.parentElement);
+        // console.log(e.target.parentElement.parentElement);
 
-        console.log(producto.value)
+        // console.log(producto.value)
 
-        var cantidad = parseInt(producto.value);
-        cantidad += 1;
-        producto.value = cantidad.toString();
+        // var cantidad = parseInt(producto.value);
+        // cantidad += 1;
+        // producto.value = cantidad.toString();
         //console.log(cantidad);
         //console.log('sumar');
-        this.actualizarPrecio(e, cantidad);
+        // this.actualizarPrecio(e, cantidad);
         // console.log('antes de actualizar (s)');
         this.actualizarProductoCarrito(e);
     }
@@ -37,7 +37,7 @@ class Carrito{
         var cantidad = parseInt(producto.textContent);
         if (cantidad > 0){
             cantidad -= 1;
-            producto.textContent = cantidad.toString();
+            // producto.textContent = cantidad.toString();
             //console.log(cantidad);
             //console.log('restar');
             this.actualizarPrecio(e, cantidad);
@@ -46,30 +46,30 @@ class Carrito{
                 this.actualizarProductoCarrito(e);
             }else{
                 //preguntar si desea eliminar el producto
-                if(this.existeProductoLS(idProducto, usuario)){
-                    Swal.fire({
-                        title: 'Esta seguro?',
-                        text: "Seguro desea eliminar este producto del carrito",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Si, eliminarlo!'
-                    }).then((result) => {
-                        //si desea, eliminarlo
-                        if (result.isConfirmed) {
-                            this.eliminarProductoLocalStorage(idProducto);
-                            Swal.fire(
-                            'Eliminado!',
-                            'Producto eliminado del carrito',
-                            'success'
-                            )
-                        }
-                        if(this.filename() === 'index.php?controller=carritoCON&action=miCarrito'){
-                            this.actualizarProductosEnCarrito(e,usuario);
-                        }
-                    })
-                }
+                // if(this.existeProductoLS(idProducto, usuario)){
+                //     Swal.fire({
+                //         title: 'Esta seguro?',
+                //         text: "Seguro desea eliminar este producto del carrito",
+                //         icon: 'warning',
+                //         showCancelButton: true,
+                //         confirmButtonColor: '#3085d6',
+                //         cancelButtonColor: '#d33',
+                //         confirmButtonText: 'Si, eliminarlo!'
+                //     }).then((result) => {
+                //         //si desea, eliminarlo
+                //         if (result.isConfirmed) {
+                //             this.eliminarProductoLocalStorage(idProducto);
+                //             Swal.fire(
+                //             'Eliminado!',
+                //             'Producto eliminado del carrito',
+                //             'success'
+                //             )
+                //         }
+                //         if(this.filename() === 'index.php?controller=carritoCON&action=miCarrito'){
+                //             this.actualizarProductosEnCarrito(e,usuario);
+                //         }
+                //     })
+                // }
             }
         }
     }

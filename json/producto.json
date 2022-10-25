@@ -1,11 +1,145 @@
 [
     {
         "productoId":1,
-        "productoDescripcion":"Flotante para tanque de agua",
-        "productoNombre":"Flotante para tanque",
+        "productoNombre":"Flotante para tanque de agua",
+        "productoDescripcion":"Flotante para tanque",
         "productoImagen":"https://canoplast.com/wp-content/uploads/2021/07/Waterplast-Flotante.jpg",
         "productoPrecio":1500,
         "productoStock":10,
-        "categoriaId":1
+        "categoriaId":1,
+        "nuevo": "N",
+        "destacado": "N"
+    },
+    {
+        "productoId":2,
+        "productoNombre":"Amoladora Black & Decker",
+        "productoDescripcion":"Amoladora Black & Decker de 820w de potencia",
+        "productoImagen":"http://lobrunosa.com.ar/634-thickbox_default/amoladora-ang-115mm-g720n-ar-820-w.jpg",
+        "productoPrecio":8800,
+        "productoStock":11,
+        "categoriaId":3,
+        "nuevo": "N",
+        "destacado": "S"
+    },
+    {
+        "productoId":3,
+        "productoNombre":"Esmalte Satinol Satinado 4 Lts. Negro",
+        "productoDescripcion":"Pintura esmalte Alba Satinol, lata de 4 Lts. Color Negro",
+        "productoImagen":"https://prestigio.vteximg.com.br/arquivos/ids/156624-1000-1000/Satinol-4lts.jpg?v=637117675181330000",
+        "productoPrecio":5000,
+        "productoStock":30,
+        "categoriaId":5,
+        "nuevo": "N",
+        "destacado": "S"
+    },
+    {
+        "productoId":4,
+        "productoNombre":"Espátula de Acero",
+        "productoDescripcion":"Espátula de acero pulido 10cm",
+        "productoImagen":"https://www.wurth.com.ar/img/productos/48564-gr-espatula-impacto-inox-50-mm.jpg",
+        "productoPrecio":480,
+        "productoStock":20,
+        "categoriaId":4,
+        "nuevo": "N",
+        "destacado": "S"
+    },
+    {
+        "productoId":5,
+        "productoNombre":"Kit de herramientas de 16 piezas",
+        "productoDescripcion":"Kit de herramientas de 16 piezas - contine: Destornilladores (5), Pinzas (3), Elementos de soldadura (3), Multimetro (1), Punzones (4)",
+        "productoImagen":"https://images.fravega.com/f500/ec743707037b1974f9b493003b2e464e.jpg",
+        "productoPrecio":12200,
+        "productoStock":8,
+        "categoriaId":4,
+        "nuevo": "N",
+        "destacado": "S"
+    },
+    {
+        "productoId":6,
+        "productoNombre":"Maceta clasica MC-22 6,9l.",
+        "productoDescripcion":"Maceta clasica MC-22 6,9l.",
+        "productoImagen":"https://www.sansan.es/wp-content/uploads/2015/11/maceta-clasica-MC-25-1-500x500.png",
+        "productoPrecio":430,
+        "productoStock":50,
+        "categoriaId":6,
+        "nuevo": "N",
+        "destacado": "S"
+    },
+    {
+        "productoId":7,
+        "productoNombre":"Silla ejecutiva ergonomica",
+        "productoDescripcion":"Silla ejecutiva ergonomica",
+        "productoImagen":"https://http2.mlstatic.com/D_NQ_NP_896129-MLA47678129255_092021-O.jpg",
+        "productoPrecio":25000,
+        "productoStock":3,
+        "categoriaId":7,
+        "nuevo": "N",
+        "destacado": "S"
+    },
+    {
+        "productoId":8,
+        "productoNombre":"Tornillo Autoperforante Madera 4x50mm 50u",
+        "productoDescripcion":"Tornillo Autoperforante Madera 4x50mm - 50 Unidades",
+        "productoImagen":"https://http2.mlstatic.com/D_NQ_NP_450021-MLA20679536233_042016-O.jpg",
+        "productoPrecio":2700,
+        "productoStock":30,
+        "categoriaId":8,
+        "nuevo": "N",
+        "destacado": "S"
+    },
+    {
+        "productoId":9,
+        "productoNombre":"Estante de madera de eucalipto",
+        "productoDescripcion":"Estante de madera de eucalipto",
+        "productoImagen":"https://arcencohogar.vtexassets.com/arquivos/ids/286047-500-auto?v=637651655944670000&width=500&height=auto&aspect=true",
+        "productoPrecio":4800,
+        "productoStock":12,
+        "categoriaId":7,
+        "nuevo": "N",
+        "destacado": "S"
+    },
+    {
+        "productoId":10,
+        "productoNombre":"Taladro percutor Dowen Pagio",
+        "productoDescripcion":"Taladro percutor Dowen Pagio",
+        "productoImagen":"https://http2.mlstatic.com/D_NQ_NP_859534-MLA31415931940_072019-O.jpg",
+        "productoPrecio":16250,
+        "productoStock":15,
+        "categoriaId":3,
+        "nuevo": "S",
+        "destacado": "N"
+    },
+    {
+        "productoId":11,
+        "productoNombre":"Destornillador Bahco Ergo Plano",
+        "productoDescripcion":"Destornillador Bahco Ergo Plano",
+        "productoImagen":"https://http2.mlstatic.com/D_NQ_NP_877514-MLA26855153765_022018-O.jpg",
+        "productoPrecio":1300,
+        "productoStock":50,
+        "categoriaId":4,
+        "nuevo": "S",
+        "destacado": "N"
+    },
+    {
+        "productoId":12,
+        "productoNombre":"Destornillador de Impacto-12 PIEZAS",
+        "productoDescripcion":"Destornillador de Impacto-12 PIEZAS",
+        "productoImagen":"https://www.wurth.com.ar/img/productos/350113-gr-destornillador-de-impacto-12-piezas.jpg",
+        "productoPrecio":30120,
+        "productoStock":3,
+        "categoriaId":3,
+        "nuevo": "S",
+        "destacado": "N"
+    },
+    {
+        "productoId":12,
+        "productoNombre":"Sierra Circular Lusqtoff 1500w",
+        "productoDescripcion":"Sierra Circular Lusqtoff 1500w",
+        "productoImagen":"https://images.fravega.com/f500/27edf0779b4d9609ad255c1631fa972a.jpg",
+        "productoPrecio":13800,
+        "productoStock":3,
+        "categoriaId":3,
+        "nuevo": "S",
+        "destacado": "N"
     }
 ]
