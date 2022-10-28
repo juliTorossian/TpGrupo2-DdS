@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
     <title>Mi Carrito - FERREtian</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
     <link href="./public/img/favicon.ico" rel="icon">
@@ -235,7 +233,7 @@
                             <h5>Total</h5>
                             <h5 id="preTotal">$ 0</h5>
                         </div>
-                        <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Finalizar compra</button>
+                        <a href="index.php?controller=carritoCON&action=checkout" class="btn btn-block btn-primary font-weight-bold my-3 py-3">Comprar Ahora</a>
                     </div>
                 </div>
             </div>

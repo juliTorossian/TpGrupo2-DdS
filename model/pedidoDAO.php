@@ -4,10 +4,9 @@
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length); 
     } 
 
-    class pedidoDAO{
+    class PedidoDAO{
         
-        public static function realizarCompra($pedidoUsuario, $pedProductos){
-
+        public static function realizarCompra($nuevoPedido){
             $FILE_PED = './json/pedido.json';
             date_default_timezone_set('America/Argentina/Buenos_Aires');
             $date = date('Y-m-d H:i:s', time());
@@ -15,16 +14,36 @@
             $json = file_get_contents($FILE_PED);
             $pedidos = json_decode($json, true);
 
-            $pedId = generarId();
-            $importe = 1500;
+            $pedId = strtoupper(generarId());
+            $importe = $nuevoPedido['pedImporte'];
             $date = date('Y-m-d H:i:s', time());
-            echo($pedId);
-            $pedido = new Pedido($pedId, $pedidoUsuario, $importe, $date, 'P', 'E');
-            foreach ($pedProductos as $key => $prd) {
-                $pedido->addProducto($prd['productoId'], $prd['productoCant'], $prd['productoPrecio']);
+
+            $pedido = new Pedido($pedId, intval($nuevoPedido['pedUsuario']), intval($importe), $date, 'P', 'E');
+            foreach ($nuevoPedido['pedProductos'] as $prd) {
+                $pedido->addProducto(intval($prd['productoId']), intval($prd['productoCant']), intval($prd['productoPrecio']));
             }
 
-            file_put_contents($FILE_PED, json_encode($pedido));
+            array_push($pedidos, $pedido);
+            file_put_contents($FILE_PED, json_encode($pedidos));
+
+            return $pedId;
+        }
+
+        public static function getPedido($pedidoId){
+            $FILE_PED = './json/pedido.json';
+            $json = file_get_contents($FILE_PED);
+            $pedidos = json_decode($json, true);
+            $pedido = null;
+
+            foreach ($pedidos as $ped) {
+                if ($ped['pedId'] == $pedidoId){
+                    $pedido = new Pedido($ped['pedId'], $ped['pedUsuario'], $ped['pedImporte'], $ped['pedFecha'], $ped['pedEstado'], $ped['pedRetira']);
+                    foreach ($ped['pedProductos'] as $prd) {
+                        $pedido->addProducto($prd['productoId'], $prd['productoCant'], $prd['productoPrecio']);
+                    }
+                }
+            }
+            return $pedido;
         }
 
     }

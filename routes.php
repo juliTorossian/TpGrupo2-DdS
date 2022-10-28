@@ -13,10 +13,10 @@
                          'oferta'         => ['ofertas'],
                          'productoCON'    => ['verProducto', 'verListaProductos', 'verProductosPorCategoria', 'verProductosFavoritos', 'verProductosFiltradosBusquda'],
                          'footer'         => ['agregarSub'],
-                         'carritoCON'     => ['miCarrito', 'realizarCompra'],
+                         'carritoCON'     => ['miCarrito', 'realizarCompra', 'checkout'],
                          'favoritoCON'    => ['favoritos', 'favoritosOnly', 'eliminarProductoCarrito', 'agregarProductoCarrito'],
                          'compraCON'      => ['compraHis', 'compraHisOnly'],
-                         'pedidoCON'      => ['nuevoPedido']
+                         'pedidoCON'      => ['nuevoPedido', 'seguimiento']
                         );
 
     if (array_key_exists($controller, $controllers)){

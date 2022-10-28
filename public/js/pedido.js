@@ -1,5 +1,6 @@
 const carrito = new Carrito();
 const productos = document.querySelector('.productos');
+const btnConfirm = document.querySelector('#btnConfirmarCompra');
 cargarEventos();
 
 function cargarEventos(){
@@ -18,13 +19,25 @@ function cargarEventos(){
                 console.log("eliminar")
                 carrito.deseaEliminarElProducto(e);
             }
-    
         });
+    }
+}
+
+function finalizarCompra(usuario){
+    const chkEfectivo = document.querySelector('#efectivo');
+    if (chkEfectivo.checked == null || chkEfectivo.checked == 0){
+        alert('Debe seleccionar un metodo de pago');
+    }else{
+        carrito.finalizarCompra(usuario);
     }
 }
 
 function mostrarProductosEnCarrito(usuario){
     carrito.mostrarProductosEnCarrito(usuario);
+}
+
+function mostrarProductosEnCheckout(usuario){
+    carrito.mostrarProductosEnCheckout(usuario);
 }
 
 function actualizarCantidades(){

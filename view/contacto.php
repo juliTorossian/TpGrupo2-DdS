@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
-    <title>MultiShop - Online Shop Website Template</title>
+    <title>Contacto - FERREtian</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="./public/img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,20 +17,22 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="./public/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="./public/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="./public/css/style.css" rel="stylesheet">
 </head>
 
 <body>
     
     <!-- Navbar Start -->
-    <div id="nav-placeholder">
+    <!-- <div id="nav-placeholder">
 
-    </div>
+    </div> -->
     <!-- Navbar End -->
+    
+    <?php require("./view/nav.php"); ?>
 
 
     <!-- Breadcrumb Start -->
@@ -92,8 +92,8 @@
                 </div>
                 <div class="bg-light p-30 mb-3">
                     <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Perdriel & Avenida General Tomás de Iriarte, Buenos Aires, Argentina</p>
-                    <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>contacto@ferretian.com.ar</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+54 (11)7511-3657</p>
                 </div>
             </div>
         </div>
@@ -102,10 +102,11 @@
 
 
     <!-- Footer Start -->
-    <div id="footer-placeholder">
+    <!-- <div id="footer-placeholder">
 
-    </div>
+    </div> -->
     <!-- Footer End -->
+    <?php require("./view/footer.php"); ?>
 
 
     <!-- Back to Top -->
@@ -115,24 +116,20 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+    <script src="./public/lib/easing/easing.min.js"></script>
+    <script src="./public/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="./public/js/main.js"></script>
 
-    <script>
+    <!-- <script>
         $(function(){
           $("#nav-placeholder").load("nav.html");
         });
         $(function(){
           $("#footer-placeholder").load("footer.html");
         });
-    </script>
+    </script> -->
 </body>
 
 </html>

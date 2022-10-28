@@ -133,19 +133,19 @@ class Carrito{
         const preTotal = document.querySelector('#preTotal')
         const preSubTotal = document.querySelector('#preSubTotal')
         
-        console.log(preTot)
+        // console.log(preTot)
 
         var precioTotal = 0;
         var count = 0;
         var aux;
         while(count < preTot.length){
             aux = preTot[count].innerHTML.split(' ');
-            console.log(aux);
+            // console.log(aux);
             precioTotal += parseFloat(aux[1]);
             count++;
         }
     
-        console.log(aux[0] +' ' +precioTotal);
+        // console.log(aux[0] +' ' +precioTotal);
         preTotal.textContent = aux[0] +' ' +precioTotal;
         preSubTotal.textContent = aux[0] +' ' +precioTotal;
     }
@@ -241,7 +241,9 @@ class Carrito{
                 // if(this.filename() === 'index.php?controller=carritoCON&action=miCarrito'){
                 //     this.actualizarProductosEnCarrito(e,usuario);
                 // }
-                window.location.href = "index.php?controller=usuarioCON&action=login";
+                if (result.isConfirmed) {
+                    window.location.href = "index.php?controller=usuarioCON&action=login";
+                }
             })
         }
     }
@@ -386,6 +388,58 @@ class Carrito{
         }
     }
 
+    mostrarProductosEnCheckout(usuario){
+        // console.log(usuario);
+    
+        var productosLS;
+        const div = document.querySelector('#productos')
+        // const moneda = document.querySelector('#moneda').textContent;
+        // const sym_div = moneda.split(' ') 
+    
+        productosLS = this.obtenerProductosLocalStorage();
+        var posicion = -1;
+        var vacio = true;
+        // console.log(productosLS)
+        // console.log(div)
+        productosLS.forEach(function (producto){
+            // console.log(usuario)
+            // console.log(producto.usuario)
+            // console.log(producto.usuario == usuario)
+
+            if(producto.usuario == usuario){
+                // console.log("producto")
+                vacio = false;
+                posicion += 1;
+                var aux = producto.precio;
+                var precioInd = parseFloat(aux);
+                var precioAct = (precioInd * producto.cantidad).toFixed(2);
+    
+                // precioInd = precioInd / parseInt(sym_div[1]);
+                // precioAct = precioAct / parseInt(sym_div[1]);
+    
+                // precioInd = sym_div[0] +' ' +precioInd.toFixed(2);
+                // precioAct = sym_div[0] +' ' +precioAct.toFixed(2);
+
+                div.innerHTML += '\
+                                <div class="d-flex justify-content-between"> \
+                                    <p class="overflow-auto" id="nomPro" name="'+producto.id+'" usuario="' +producto.usuario +'">'+producto.nombre +'</p> \
+                                    <p id="preTotPrd">$ '+precioAct +'</p> \
+                                </div>'
+                
+            }
+            
+            // if(vacio){
+            //     div.innerHTML = 'no tiene un pedido asociado';
+            // }
+        });
+        if(vacio){
+            div.innerHTML = 'no tiene un pedido asociado';
+        }
+        if(!vacio){
+            this.actualizaTotal();
+        }
+    }
+
     actualizarProductosEnCarrito(e, usuario){
         console.log(e.target.parentElement.parentElement)
         e.target.parentElement.parentElement.parentElement.innerHTML = '';
@@ -452,6 +506,76 @@ class Carrito{
                 console.log('no ok');
             }
         });
+    }
+
+    finalizarCompra(usuario){
+        var productosLS;
+
+        Swal.fire({
+            title: 'Finalizar Compra',
+            text: "Seguro que quieres finalizar la compra?",
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                productosLS = this.obtenerProductosLocalStorage();
+        
+                // console.log(productosLS);
+                // console.log("finalizar compra");
+
+                let importe = 0;
+                let pedido = {
+                    pedUsuario: usuario,
+                    pedImporte: 0,
+                    pedProductos: []
+                }
+                productosLS.forEach( (producto) => {
+                    if (producto.usuario == usuario){
+                        let prd = {
+                            productoId: producto.id,
+                            productoCant: producto.cantidad,
+                            productoPrecio: producto.precio
+                        }
+                        importe += (producto.precio * producto.cantidad);
+                        pedido.pedProductos.push(prd);
+                    }
+                })
+                pedido.pedImporte = importe;
+
+                // console.log(pedido);
+
+
+                $.post('index.php?controller=pedidoCON&action=nuevoPedido', pedido, function(data){
+                    console.log(data);
+                    carrito.eliminarCarrito(usuario);
+                    window.location.href = "index.php?controller=pedidoCON&action=seguimiento&pedido="+data;
+                });
+
+                // axios.post('index.php?controller=pedidoCON&action=nuevoPedido', {
+                //     pedido
+                // })
+                // .then(function (response) {
+                //     console.log(response);
+                //     console.log(response.data);
+                // })
+                // .catch(function (error) {
+                //     console.log(error);
+                // });
+
+                // axios({
+                //     method: 'post',
+                //     url: 'index.php?controller=pedidoCON&action=nuevoPedido',
+                //     data: pedido
+                // });
+
+                // carrito.eliminarCarrito(usuario);
+                // window.location.href = "index.php?controller=pedidoCON&action=seguimiento";
+
+            }
+        })
+
     }
 }
 

@@ -1,17 +1,1 @@
-[
-    {
-        "pedId": "",
-        "pedUsuario":1,
-        "pedImporte":1500,
-        "pedFecha": "2022-10-25",
-        "pedEstado": "P",
-        "pedRetira": "S",
-        "pedProductos":[
-            {
-                "productoId": 1,
-                "productoCant": 1,
-                "productoPrecio": 1500
-            }
-        ]
-    }
-]
+[{"pedId":"7GQ4X92D3T","pedUsuario":3,"pedImporte":45420,"pedFecha":"2022-10-28 01:03:15","pedEstado":"P","pedRetira":"E","pedProductos":[{"productoId":3,"productoCant":1,"productoPrecio":5000},{"productoId":2,"productoCant":1,"productoPrecio":8800},{"productoId":12,"productoCant":1,"productoPrecio":30120},{"productoId":1,"productoCant":1,"productoPrecio":1500}]},{"pedId":"R08OGDPJNS","pedUsuario":3,"pedImporte":45420,"pedFecha":"2022-10-28 10:14:45","pedEstado":"P","pedRetira":"E","pedProductos":[{"productoId":3,"productoCant":1,"productoPrecio":5000},{"productoId":2,"productoCant":1,"productoPrecio":8800},{"productoId":12,"productoCant":1,"productoPrecio":30120},{"productoId":1,"productoCant":1,"productoPrecio":1500}]},{"pedId":"2KXK4D1JUZ","pedUsuario":3,"pedImporte":45420,"pedFecha":"2022-10-28 10:14:54","pedEstado":"P","pedRetira":"E","pedProductos":[{"productoId":3,"productoCant":1,"productoPrecio":5000},{"productoId":2,"productoCant":1,"productoPrecio":8800},{"productoId":12,"productoCant":1,"productoPrecio":30120},{"productoId":1,"productoCant":1,"productoPrecio":1500}]},{"pedId":"BT1XU0JO5W","pedUsuario":3,"pedImporte":45420,"pedFecha":"2022-10-28 10:15:26","pedEstado":"P","pedRetira":"E","pedProductos":[{"productoId":3,"productoCant":1,"productoPrecio":5000},{"productoId":2,"productoCant":1,"productoPrecio":8800},{"productoId":12,"productoCant":1,"productoPrecio":30120},{"productoId":1,"productoCant":1,"productoPrecio":1500}]},{"pedId":"2JPAFYWCXW","pedUsuario":3,"pedImporte":45420,"pedFecha":"2022-10-28 10:15:49","pedEstado":"P","pedRetira":"E","pedProductos":[{"productoId":3,"productoCant":1,"productoPrecio":5000},{"productoId":2,"productoCant":1,"productoPrecio":8800},{"productoId":12,"productoCant":1,"productoPrecio":30120},{"productoId":1,"productoCant":1,"productoPrecio":1500}]},{"pedId":"7HISNQELWU","pedUsuario":3,"pedImporte":45420,"pedFecha":"2022-10-28 10:28:04","pedEstado":"P","pedRetira":"E","pedProductos":[{"productoId":3,"productoCant":1,"productoPrecio":5000},{"productoId":2,"productoCant":1,"productoPrecio":8800},{"productoId":12,"productoCant":1,"productoPrecio":30120},{"productoId":1,"productoCant":1,"productoPrecio":1500}]}]
