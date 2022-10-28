@@ -1,8 +1,8 @@
 <?php
-    require_once("/model/UsuarioDAO.php");
-    require_once('/model/categoriaDAO.php');
-    require_once('/model/monedaDAO.php');
-    require_once('/model/pedidoDAO.php');
+    require_once("./model/UsuarioDAO.php");
+    require_once('./model/categoriaDAO.php');
+    require_once('./model/monedaDAO.php');
+    require_once('./model/pedidoDAO.php');
     
     class PedidoCON {
 

@@ -1,9 +1,9 @@
 <?php
-    require_once("/model/UsuarioDAO.php");
-    require_once('/model/productoDAO.php');
-    require_once('/model/categoriaDAO.php');
-    require_once('/model/monedaDAO.php');
-    require_once('/model/carritoDAO.php');
+    require_once("./model/UsuarioDAO.php");
+    require_once('./model/productoDAO.php');
+    require_once('./model/categoriaDAO.php');
+    require_once('./model/monedaDAO.php');
+    require_once('./model/carritoDAO.php');
 
     class carritoCON{
 

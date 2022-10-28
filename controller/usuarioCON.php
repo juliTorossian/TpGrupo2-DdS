@@ -1,7 +1,7 @@
 <?php
-    require_once("/model/UsuarioDAO.php");
-    require_once('/model/categoriaDAO.php');
-    require_once('/model/monedaDAO.php');
+    require_once("./model/UsuarioDAO.php");
+    require_once('./model/categoriaDAO.php');
+    require_once('./model/monedaDAO.php');
     
     class UsuarioCON {
 
