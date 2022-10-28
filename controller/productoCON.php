@@ -1,9 +1,7 @@
 <?php
-
-
-    include('./model/productoDAO.php');
-    include('./model/categoriaDAO.php');
-    include('./model/monedaDAO.php');
+    include('/model/productoDAO.php');
+    include('/model/categoriaDAO.php');
+    include('/model/monedaDAO.php');
 
     class ProductoCON{
 

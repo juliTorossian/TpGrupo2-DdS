@@ -5,3 +5,4 @@
 # Ignora los archivis de conexion con la BD
 
 conn.php
+pass.txt
