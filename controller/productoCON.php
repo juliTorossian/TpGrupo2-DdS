@@ -40,6 +40,7 @@
         public function verProductosFiltradosBusquda(){
             $categorias  = CategoriaDAO::cargarCategorias();
             $productos   = ProductoDAO::verProductosFiltradosBusquda($_GET['busqueda']);
+            $categoriaSel= [];
             $monedas     = monedaDAO::cargarMonedas();
             require_once("view/productosList.php");
         }

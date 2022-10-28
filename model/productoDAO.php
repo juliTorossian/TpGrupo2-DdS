@@ -234,7 +234,7 @@
             $productos = array();
 
             foreach ($resultado as $producto) {
-                if (strpos(strtolower($producto['productoNombre']), strtolower($busqueda)) != false){
+                if (strpos(strtolower($producto['productoNombre']), strtolower($busqueda)) !== false){
                     $prdId        = $producto['productoId'];
                     $prdNombre    = $producto['productoNombre'];
                     $prdDesc      = $producto['productoDescripcion'];
