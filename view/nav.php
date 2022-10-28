@@ -131,7 +131,7 @@
                         <a href="index.php" class="nav-item nav-link active">Home</a>
                         <a href="index.php?controller=productoCON&action=verListaProductos" class="nav-item nav-link">Productos</a>
                         <a href="index.php?controller=productoCON&action=verListaProductos" class="nav-item nav-link">Ofertas</a>
-                        <a href="contact.php" class="nav-item nav-link">Contacto</a>
+                        <a href="index.php?controller=home&action=contacto" class="nav-item nav-link">Contacto</a>
                     </div>
                 </div>
                 <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
