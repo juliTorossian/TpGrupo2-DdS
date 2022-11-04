@@ -377,9 +377,9 @@ class Carrito{
                 
             }
             
-            if(vacio){
-                div.innerHTML = 'Su carrito esta vacio';
-            }
+            // if(vacio){
+            //     div.innerHTML = 'Su carrito esta vacio';
+            // }
         });
         if(vacio){
             div.innerHTML = 'Su carrito esta vacio';
