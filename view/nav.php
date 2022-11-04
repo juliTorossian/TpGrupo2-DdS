@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="col-lg-4 text-center">
-            <a href="" class="text-decoration-none">
+            <a href="index.php" class="text-decoration-none">
                 <span class="h1 text-uppercase text-primary bg-dark px-2">Ferre</span>
                 <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">tian</span>
             </a>
@@ -52,9 +52,9 @@
                     <div class="btn-group mx-2">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">ARS</button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">EUR</button>
-                            <button class="dropdown-item" type="button">USD</button>
-                            <button class="dropdown-item" type="button">CAD</button>
+                            <button class="dropdown-item" type="button" onclick="noFunciona()">EUR</button>
+                            <button class="dropdown-item" type="button" onclick="noFunciona()">USD</button>
+                            <button class="dropdown-item" type="button" onclick="noFunciona()">CAD</button>
                         </div>
                     </div>
                     <!-- <div class="btn-group">
@@ -130,18 +130,18 @@
                     <div class="navbar-nav mr-auto py-0">
                         <a href="index.php" class="nav-item nav-link active">Home</a>
                         <a href="index.php?controller=productoCON&action=verListaProductos" class="nav-item nav-link">Productos</a>
-                        <a href="index.php?controller=productoCON&action=verListaProductos" class="nav-item nav-link">Ofertas</a>
+                        <a href="index.php?controller=productoCON&action=verOfertas" class="nav-item nav-link">Ofertas</a>
                         <a href="index.php?controller=home&action=contacto" class="nav-item nav-link">Contacto</a>
                     </div>
                 </div>
                 <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-                    <a href="" class="btn px-0">
+                    <a class="btn px-0" onclick="noFunciona()">
                         <i class="fas fa-heart text-primary"></i>
                         <!-- <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span> -->
                     </a>
                     <a href="index.php?controller=carritoCON&action=miCarrito" class="btn px-0 ml-3">
                         <i class="fas fa-shopping-cart text-primary"></i>
-                        <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                        <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;" id="cantCarrito">0</span>
                     </a>
                 </div>
             </nav>
@@ -150,4 +150,10 @@
 </div>
 <!-- Navbar End -->
 
+<script src="./public/js/carrito.js"></script>
+<script src="./public/js/cantidad.js"></script>
+<script>consultarCantidadEnCarrito(<?php echo($usuario);?>)</script>
+
 <script src="./public/js/buscador.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./public/js/noFunciona.js"></script>

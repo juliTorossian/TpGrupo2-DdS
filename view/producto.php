@@ -80,7 +80,19 @@
                         </div>
                         <small class="pt-1">(99 Reviews)</small>
                     </div>
-                    <h3 class="font-weight-semi-bold mb-4" id="preIndPrd"><?php echo("$ ".$producto->proPrecio);?></h3>
+                    <?php 
+                        if (!$producto->proPromo){
+                    ?>
+                            <h3 class="font-weight-semi-bold mb-4" id="preIndPrd"><?php echo("$ ".$producto->proPrecio);?></h3>
+                    <?php
+                        }else{
+                            $precioCalculado = ($producto->proPrecio * ((100 - $producto->proPorcDescuento) / 100));
+                    ?>
+                            <del><p><?php echo("$ ".$producto->proPrecio);?></p></del>
+                            <h3 class="font-weight-semi-bold mb-4" id="preIndPrd"><?php echo("$ ".$precioCalculado);?></h3>
+                    <?php
+                        }
+                    ?>
                     <p class="mb-4"><?php echo($producto->proDescripcion);?></p>
 
                     <div class="d-flex align-items-center mb-4 pt-2">
@@ -99,138 +111,9 @@
                         </div>
                         <button class="btn btn-primary px-3 comprar"><i class="fa fa-shopping-cart mr-1"></i>Añadir al Carrito</button>
                     </div>
-                    <!-- <div class="d-flex pt-2">
-                        <strong class="text-dark mr-2">Compartir:</strong>
-                        <div class="d-inline-flex">
-                            <a class="text-dark px-2" href="">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a class="text-dark px-2" href="">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a class="text-dark px-2" href="">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a class="text-dark px-2" href="">
-                                <i class="fab fa-pinterest"></i>
-                            </a>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
-        <!-- <div class="row px-xl-5">
-            <div class="col">
-                <div class="bg-light p-30">
-                    <div class="nav nav-tabs mb-4">
-                        <a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-pane-1">Descipción</a>
-                        <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-2">Información</a>
-                        <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">Reseñas (1)</a>
-                    </div>
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="tab-pane-1">
-                            <h4 class="mb-3">Descipcion del producto</h4>
-                            <p>La amoladora Black+Decker es una herramienta versátil, que permite realizar diferentes trabajos con una terminación profesional. Por eso, es una excelente opción sumarla a tu taller o caja de herramientas.</p>
-                            <p>Hablar de trayectoria es hacer referencia a Black+Decker, empresa líder en el rubro. Su amplia gama de productos incluye opciones para el hogar y la industria que podés elegir según tus necesidades.
-                                Equipá tu casa o taller y ¡hacelo vos mismo! Esta amoladora angular es perfecta para realizar distintos trabajos de amolado, cepillado y pulido. A su vez, se destaca por ser un elemento indispensable para cortar, desbastar y lijar diversos materiales derivados del metal.
-                            </p>
-                            <p>
-                                Segura y fácil de maniobrar.
-                                A la hora de trabajar con herramientas es importante que tu seguridad esté garantizada. Con el botón de bloqueo de disco que trae incorporado reducís al máximo el riesgo cuando trabajás con discos de corte.</p>
-                        </div>
-                        <div class="tab-pane fade" id="tab-pane-2">
-                            <h4 class="mb-3">Información adicional</h4>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item px-0">
-                                            Marca: Black & Decker
-                                        </li>
-                                        <li class="list-group-item px-0">
-                                            Potencia: 750 W
-                                        </li>
-                                        <li class="list-group-item px-0">
-                                            Es inalámbrico: No
-                                        </li>
-                                        <li class="list-group-item px-0">
-                                            Velocidad máxima de rotación: 11000 rpm
-                                        </li>
-                                      </ul> 
-                                </div>
-                                <div class="col-md-6">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item px-0">
-                                            Diámetro del disco: 115 mm
-                                        </li>
-                                        <li class="list-group-item px-0">
-                                            Color: Naranja
-                                        </li>
-                                        <li class="list-group-item px-0">
-                                            Diámetro del disco: 115 mm
-                                        </li>
-                                        <li class="list-group-item px-0">
-                                            Accesorios incluidos: 1 disco de desbaste, Manual
-                                        </li>
-                                      </ul> 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="tab-pane-3">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h4 class="mb-4">1 reseña para "Amoladora Black & Decker"</h4>
-                                    <div class="media mb-4">
-                                        <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                                        <div class="media-body">
-                                            <h6>John Doe<small> - <i>02 Jan 2015</i></small></h6>
-                                            <div class="text-primary mb-2">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star-half-alt"></i>
-                                                <i class="far fa-star"></i>
-                                            </div>
-                                            <p>Es la mejor amoladora que probe!</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h4 class="mb-4">Dejá una reseña</h4>
-                                    <small>Su dirección de correo electrónico no será publicada. Los campos obligatorios están marcados *</small>
-                                    <div class="d-flex my-3">
-                                        <p class="mb-0 mr-2">Tu clasificación * :</p>
-                                        <div class="text-primary">
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="message">Tu Reseña *</label>
-                                            <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="name">Tu Nombre *</label>
-                                            <input type="text" class="form-control" id="name">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Tu Email *</label>
-                                            <input type="email" class="form-control" id="email">
-                                        </div>
-                                        <div class="form-group mb-0">
-                                            <input type="submit" value="Deja tu Reseña" class="btn btn-primary px-3">
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
     <!-- Shop Detail End -->
 
@@ -241,7 +124,42 @@
         <div class="row px-xl-5">
             <div class="col">
                 <div class="owl-carousel related-carousel">
-                    <div class="product-item bg-light">
+                <?php
+            if (count($a_productos_desta) > 0){
+                foreach($a_productos_desta as $key => $producto){
+            ?>
+
+                <div class="product-item bg-light">
+                    <a href="index.php?controller=productoCON&action=verProducto&productoId=<?php echo($producto->productoId);?>">
+                        <div class="product-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100" src="<?php echo($producto->proNomImagen);?>" alt="<?php echo($producto->proNombre);?>">
+                        </div>
+                        <div class="text-center py-4">
+                            <h6 ><?php echo($producto->proNombre);?></h6>
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                <h5><?php echo('$'.$producto->proPrecio);?></h5>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star-half-alt text-primary mr-1"></small>
+                                <small>(99)</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            <?php
+                }
+            }else{
+            ?>
+                <p>No se encontraron productos.</p>
+            <?php
+            }
+            ?>
+                    <!-- <div class="product-item bg-light">
                         <div class="product-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="https://http2.mlstatic.com/D_NQ_NP_859534-MLA31415931940_072019-O.jpg" alt="">
                             <div class="product-action">
@@ -365,7 +283,7 @@
                                 <small>(99)</small>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

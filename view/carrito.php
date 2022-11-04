@@ -208,14 +208,12 @@
                 </table>
             </div>
             <div class="col-lg-4">
-                <form class="mb-30" action="">
-                    <div class="input-group">
-                        <input type="text" class="form-control border-0 p-4" placeholder="Codigo">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary">Aplicar cupón</button>
-                        </div>
+                <div class="input-group">
+                    <input type="text" class="form-control border-0 p-4" placeholder="Codigo">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" onclick="noFunciona()">Aplicar cupón</button>
                     </div>
-                </form>
+                </div>
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Resumen</span></h5>
                 <div class="bg-light p-30 mb-5">
                     <div class="border-bottom pb-2">

@@ -29,6 +29,7 @@
         function seguimiento(){
 
             $pedido = PedidoDAO::getPedido($_GET['pedido']);
+            $usuario    = (isset($_SESSION['usuario'])) ? $_SESSION['usuario'] : null;
             // echo '<pre>'; print_r($pedido); echo '</pre>';
             require_once('./view/tracking.php');
         }

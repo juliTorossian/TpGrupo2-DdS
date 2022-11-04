@@ -14,6 +14,7 @@
             
             $usu_json = file_get_contents($FILE_PRO);
             $resultado = json_decode($usu_json, true);
+            $a_productos = array();
 
             foreach ($resultado as $producto) {
                 $prdId        = $producto['productoId'];
@@ -26,69 +27,45 @@
                 $prdNuevo     = $producto['nuevo'];
                 $prdDescuento = $producto['destacado'];
                 
-                $a_productos[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
+                $productoAux = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
+                if ($producto['oferta'] == 'S'){
+                    $productoAux->setPromo($producto['oferta']);
+                    $productoAux->setDescuento($producto['descuento']);
+                }
+
+                array_push($a_productos, $productoAux);
             }
             return $a_productos;
         }
 
-
-
-        // public static function cargarProductosEnPromo(){
-
-        //     global $mysqli;
-
-        //     $stmt = $mysqli->prepare("SELECT * FROM prd WHERE prdPromocion = ?");
-        //     $s = 'S';
-        //     $stmt->bind_param("s", $s);
-        //     $stmt->execute();
-
-        //     $resultado   = $stmt->get_result();
-        //     $a_productos_promo = array();
+        public static function cargarProductosOferta(){
+            $FILE_PRO = './json/producto.json';
             
-        //     while($producto = $resultado->fetch_assoc()){
-        //         $prdId        = $producto['prdId'];
-        //         $prdNombre    = $producto['prdNombre'];
-        //         $prdDesc      = $producto['prdDesc'];
-        //         $prdPrecio    = $producto['prdPrecio'];
-        //         $prdNomImg    = $producto['prdNomImg'];
-        //         $prdStock     = $producto['prdStock'];
-        //         $prdNuevo     = $producto['prdNuevo'];
-        //         $prdPromocion = $producto['prdPromocion'];
-        //         $prdDescuento = $producto['prdDescuento'];
-        //         $prdCategoria = $producto['categoriaId'];
+            $usu_json = file_get_contents($FILE_PRO);
+            $resultado = json_decode($usu_json, true);
+            $productos = array();
 
-        //         $a_productos_promo[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdNuevo, $prdPromocion, $prdDescuento, $prdStock);
-        //     }
-        //     return $a_productos_promo;
-        // }
+            foreach ($resultado as $producto) {
+                if ($producto['oferta'] == 'S'){
+                    $prdId        = $producto['productoId'];
+                    $prdNombre    = $producto['productoNombre'];
+                    $prdDesc      = $producto['productoDescripcion'];
+                    $prdPrecio    = $producto['productoPrecio'];
+                    $prdNomImg    = $producto['productoImagen'];
+                    $prdStock     = $producto['productoStock'];
+                    $prdCategoria = $producto['categoriaId'];
+                    $prdNuevo     = $producto['nuevo'];
+                    $prdDescuento = $producto['destacado'];
 
-        // public static function cargarProductosNuevos(){
-        //     global $mysqli;
+                    $productoAux = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
+                    $productoAux->setPromo($producto['oferta']);
+                    $productoAux->setDescuento($producto['descuento']);
 
-        //     $stmt = $mysqli->prepare("SELECT * FROM prd WHERE prdNuevo = ?");
-        //     $s = 'S';
-        //     $stmt->bind_param("s", $s);
-        //     $stmt->execute();
-
-        //     $resultado   = $stmt->get_result();
-        //     $a_productos_nuevos = array();
-            
-        //     while($producto = $resultado->fetch_assoc()){
-        //         $prdId        = $producto['prdId'];
-        //         $prdNombre    = $producto['prdNombre'];
-        //         $prdDesc      = $producto['prdDesc'];
-        //         $prdPrecio    = $producto['prdPrecio'];
-        //         $prdNomImg    = $producto['prdNomImg'];
-        //         $prdStock     = $producto['prdStock'];
-        //         $prdNuevo     = $producto['prdNuevo'];
-        //         $prdPromocion = $producto['prdPromocion'];
-        //         $prdDescuento = $producto['prdDescuento'];
-        //         $prdCategoria = $producto['categoriaId'];
-
-        //         $a_productos_nuevos[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdNuevo, $prdPromocion, $prdDescuento, $prdStock);
-        //     }
-        //     return $a_productos_nuevos;
-        // }
+                    array_push($productos, $productoAux);
+                }
+            }
+            return $productos;
+        }
 
         public static function cargarProductoPorId($productoId){
             $FILE_PRO = './json/producto.json';
@@ -109,6 +86,10 @@
                     $prdDescuento = $prd['destacado'];
 
                     $producto = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
+                    if ($prd['oferta'] == 'S'){
+                        $producto->setPromo($prd['oferta']);
+                        $producto->setDescuento($prd['descuento']);
+                    }
                 }
                 if ($producto != null){
                     break;
@@ -136,7 +117,12 @@
                     $prdNuevo     = $producto['nuevo'];
                     $prdDescuento = $producto['destacado'];
 
-                    $productos[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
+                    $productoAux = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
+                    if ($producto['oferta'] == 'S'){
+                        $productoAux->setPromo($producto['oferta']);
+                        $productoAux->setDescuento($producto['descuento']);
+                    }
+                    array_push($productos, $productoAux);
                 }
             }
             return $productos;
@@ -161,7 +147,12 @@
                     $prdNuevo     = $producto['nuevo'];
                     $prdDescuento = $producto['destacado'];
 
-                    $productos[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
+                    $productoAux = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
+                    if ($producto['oferta'] == 'S'){
+                        $productoAux->setPromo($producto['oferta']);
+                        $productoAux->setDescuento($producto['descuento']);
+                    }
+                    array_push($productos, $productoAux);
                 }
             }
             return $productos;
@@ -186,45 +177,16 @@
                     $prdNuevo     = $producto['nuevo'];
                     $prdDescuento = $producto['destacado'];
 
-                    $productos[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
+                    $productoAux = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
+                    if ($producto['oferta'] == 'S'){
+                        $productoAux->setPromo($producto['oferta']);
+                        $productoAux->setDescuento($producto['descuento']);
+                    }
+                    array_push($productos, $productoAux);
                 }
             }
             return $productos;
         }
-
-        // public static function cargarProductosFavoritosPorUsuario($usuario){
-            
-        //     global $mysqli;
-
-        //     $stmt = $mysqli->prepare("SELECT usrId FROM usuario WHERE usrNombre = ?");
-        //     $stmt->bind_param("s", $usuario);
-        //     $stmt->execute();
-
-        //     $usrId = $stmt->get_result()->fetch_assoc()['usrId'];
-
-        //     $stmt = $mysqli->prepare("SELECT * FROM favorito INNER JOIN prd_fav ON favorito.favoritoId = prd_fav.favoritoId INNER JOIN prd ON prd_fav.prdId = prd.prdId WHERE favorito.usrId = ?");
-        //     $stmt->bind_param("i", $usrId);
-        //     $stmt->execute();
-
-        //     $resultado   = $stmt->get_result();
-        //     $a_productos_favoritos   = array();
-            
-        //     while($producto = $resultado->fetch_assoc()){
-        //         $prdId        = $producto['prdId'];
-        //         $prdNombre    = $producto['prdNombre'];
-        //         $prdDesc      = $producto['prdDesc'];
-        //         $prdPrecio    = $producto['prdPrecio'];
-        //         $prdNomImg    = $producto['prdNomImg'];
-        //         $prdStock     = $producto['prdStock'];
-        //         $prdNuevo     = $producto['prdNuevo'];
-        //         $prdPromocion = $producto['prdPromocion'];
-        //         $prdDescuento = $producto['prdDescuento'];
-        //         $prdCategoria = $producto['categoriaId'];
-
-        //         $a_productos_favoritos[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdNuevo, $prdPromocion, $prdDescuento, $prdStock);
-        //     }
-        //     return $a_productos_favoritos;
-        // }
 
         public static function verProductosFiltradosBusquda($busqueda){
             $FILE_PRO = './json/producto.json';
@@ -245,7 +207,12 @@
                     $prdNuevo     = $producto['nuevo'];
                     $prdDescuento = $producto['destacado'];
 
-                    $productos[] = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
+                    $productoAux = new Producto($prdId, $prdNombre, $prdDesc, $prdPrecio, $prdCategoria, $prdNomImg, $prdStock, $prdNuevo, $prdDescuento);
+                    if ($producto['oferta'] == 'S'){
+                        $productoAux->setPromo($producto['oferta']);
+                        $productoAux->setDescuento($producto['descuento']);
+                    }
+                    array_push($productos, $productoAux);
                 }
             }
             return $productos;
@@ -267,6 +234,7 @@
         public $proStock;
         public $proDescuento;
         public $proCantCarrito;
+        public $proPorcDescuento;
 
         public $categoria;
 
@@ -281,6 +249,8 @@
             $this->proStock = $cantStock;
             $this->proNuevo = ($nuevo == 'S');
             $this->proDescuento = ($descuento == 'S');
+            $this->proPromo = False;
+            $this->proPorcDescuento = 0;
         }
 
         public function setNuevo($esNuevo){
@@ -292,7 +262,7 @@
         }
 
         public function setDescuento($porcDescuento){
-            $this->proDescuento = $porcDescuento;
+            $this->proPorcDescuento = $porcDescuento;
         }
 
         public function setStock($cantStock){

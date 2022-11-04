@@ -8,7 +8,9 @@
         "productoStock":10,
         "categoriaId":1,
         "nuevo": "N",
-        "destacado": "N"
+        "destacado": "N",
+        "oferta": "N",
+        "descuento": 0
     },
     {
         "productoId":2,
@@ -19,7 +21,9 @@
         "productoStock":11,
         "categoriaId":3,
         "nuevo": "N",
-        "destacado": "S"
+        "destacado": "S",
+        "oferta": "N",
+        "descuento": 0
     },
     {
         "productoId":3,
@@ -30,7 +34,9 @@
         "productoStock":30,
         "categoriaId":5,
         "nuevo": "N",
-        "destacado": "S"
+        "destacado": "S",
+        "oferta": "N",
+        "descuento": 0
     },
     {
         "productoId":4,
@@ -41,7 +47,9 @@
         "productoStock":20,
         "categoriaId":4,
         "nuevo": "N",
-        "destacado": "S"
+        "destacado": "S",
+        "oferta": "N",
+        "descuento": 0
     },
     {
         "productoId":5,
@@ -52,7 +60,9 @@
         "productoStock":8,
         "categoriaId":4,
         "nuevo": "N",
-        "destacado": "S"
+        "destacado": "S",
+        "oferta": "N",
+        "descuento": 0
     },
     {
         "productoId":6,
@@ -63,7 +73,9 @@
         "productoStock":50,
         "categoriaId":6,
         "nuevo": "N",
-        "destacado": "S"
+        "destacado": "S",
+        "oferta": "N",
+        "descuento": 0
     },
     {
         "productoId":7,
@@ -74,7 +86,9 @@
         "productoStock":3,
         "categoriaId":7,
         "nuevo": "N",
-        "destacado": "S"
+        "destacado": "S",
+        "oferta": "N",
+        "descuento": 0
     },
     {
         "productoId":8,
@@ -85,7 +99,9 @@
         "productoStock":30,
         "categoriaId":8,
         "nuevo": "N",
-        "destacado": "S"
+        "destacado": "S",
+        "oferta": "N",
+        "descuento": 0
     },
     {
         "productoId":9,
@@ -96,7 +112,9 @@
         "productoStock":12,
         "categoriaId":7,
         "nuevo": "N",
-        "destacado": "S"
+        "destacado": "S",
+        "oferta": "N",
+        "descuento": 0
     },
     {
         "productoId":10,
@@ -107,7 +125,9 @@
         "productoStock":15,
         "categoriaId":3,
         "nuevo": "S",
-        "destacado": "N"
+        "destacado": "N",
+        "oferta": "N",
+        "descuento": 0
     },
     {
         "productoId":11,
@@ -118,7 +138,9 @@
         "productoStock":50,
         "categoriaId":4,
         "nuevo": "S",
-        "destacado": "N"
+        "destacado": "N",
+        "oferta": "N",
+        "descuento": 0
     },
     {
         "productoId":12,
@@ -129,7 +151,9 @@
         "productoStock":3,
         "categoriaId":3,
         "nuevo": "S",
-        "destacado": "N"
+        "destacado": "N",
+        "oferta": "N",
+        "descuento": 0
     },
     {
         "productoId":12,
@@ -140,6 +164,34 @@
         "productoStock":3,
         "categoriaId":3,
         "nuevo": "S",
-        "destacado": "N"
+        "destacado": "N",
+        "oferta": "N",
+        "descuento": 0
+    },
+    {
+        "productoId":13,
+        "productoNombre":"Gazebo Mix 6X3Mt",
+        "productoDescripcion":"Gazebo Mix 6X3Mt Con Paredes",
+        "productoImagen":"https://arcencohogareasy.vtexassets.com/arquivos/ids/302544-800-auto?v=1753872613&width=800&height=auto&aspect=true",
+        "productoPrecio":49992,
+        "productoStock":3,
+        "categoriaId":6,
+        "nuevo": "N",
+        "destacado": "N",
+        "oferta": "S",
+        "descuento": 20
+    },
+    {
+        "productoId":14,
+        "productoNombre":"Escritorio Muebles Gacela",
+        "productoDescripcion":"Escritorio Muebles Gacela 4 Cajones Blanco-Orinoco 75x120x60Cm",
+        "productoImagen":"https://arcencohogar.vtexassets.com/arquivos/ids/326251-800-800?v=637938384527230000&width=800&height=800&aspect=true",
+        "productoPrecio":28900,
+        "productoStock":6,
+        "categoriaId":7,
+        "nuevo": "N",
+        "destacado": "N",
+        "oferta": "S",
+        "descuento": 25
     }
 ]

@@ -210,6 +210,7 @@ class Carrito{
                 }else{
                     //this.insertarCarrito(infoProducto);
                     this.guardarProductosLocalStorage(infoProducto, origen);
+                    this.obtenerCantidadProductos(infoProducto.usuario);
                     // console.log('Producto Insertado en el carrito');
                 }
             }
@@ -576,6 +577,22 @@ class Carrito{
             }
         })
 
+    }
+
+    obtenerCantidadProductos(usuario){
+        let cantidad = 0;
+        let productosLS = this.obtenerProductosLocalStorage()
+        productosLS.forEach( (producto) => {
+            if (producto.usuario == usuario){
+                cantidad += 1;
+            }
+        })
+        this.actualizaCantCarrito(cantidad);
+    }
+
+    actualizaCantCarrito(cantidad){
+        let etiqueta = document.querySelector('#cantCarrito');
+        etiqueta.innerHTML = cantidad;
     }
 }
 

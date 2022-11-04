@@ -174,33 +174,65 @@
                     <?php
                     if (count($productos) > 0){
                         foreach($productos as $key => $producto){
+                            // echo '<pre>'; print_r($producto); echo '</pre>';
+                            if (!$producto->proPromo){
                     ?>
 
-                        <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
-                            <div class="product-item bg-light mb-4">
-                                <a href="index.php?controller=productoCON&action=verProducto&productoId=<?php echo($producto->productoId);?>">
-                                    <div class="product-img position-relative overflow-hidden">
-                                        <img class="img-fluid w-100" src="<?php echo($producto->proNomImagen);?>" alt="<?php echo($producto->proNombre);?>">
+                            <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                                <div class="product-item bg-light mb-4">
+                                    <a href="index.php?controller=productoCON&action=verProducto&productoId=<?php echo($producto->productoId);?>">
+                                        <div class="product-img position-relative overflow-hidden">
+                                            <img class="img-fluid w-100" src="<?php echo($producto->proNomImagen);?>" alt="<?php echo($producto->proNombre);?>">
+                                        </div>
+                                        <div class="text-center py-4">
+                                            <h6 ><?php echo($producto->proNombre);?></h6>
+                                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                                <h5><?php echo('$'.$producto->proPrecio);?></h5>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star-half-alt text-primary mr-1"></small>
+                                                <small>(99)</small>
+                                            </div>
+                                        </a>
                                     </div>
-                                    <div class="text-center py-4">
-                                        <h6 ><?php echo($producto->proNombre);?></h6>
-                                        <div class="d-flex align-items-center justify-content-center mt-2">
-                                            <h5><?php echo('$'.$producto->proPrecio);?></h5>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-center mb-1">
-                                            <small class="fa fa-star text-primary mr-1"></small>
-                                            <small class="fa fa-star text-primary mr-1"></small>
-                                            <small class="fa fa-star text-primary mr-1"></small>
-                                            <small class="fa fa-star text-primary mr-1"></small>
-                                            <small class="fa fa-star-half-alt text-primary mr-1"></small>
-                                            <small>(99)</small>
-                                        </div>
-                                    </a>
                                 </div>
                             </div>
-                        </div>
 
                     <?php
+                            }else{
+                                $precioCalculado = ($producto->proPrecio * ((100 - $producto->proPorcDescuento) / 100));
+                    ?>  
+                            <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                                <div class="product-item bg-light mb-4">
+                                    <a href="index.php?controller=productoCON&action=verProducto&productoId=<?php echo($producto->productoId);?>">
+                                        <span class="badge badge-success">OFERTA</span>
+                                        <div class="product-img position-relative overflow-hidden">
+                                            <img class="img-fluid w-100" src="<?php echo($producto->proNomImagen);?>" alt="<?php echo($producto->proNombre);?>">
+                                        </div>
+                                        <div class="text-center py-4">
+                                            <h6 ><?php echo($producto->proNombre);?></h6>
+                                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                                <h5><?php echo('$'.$precioCalculado);?></h5>
+                                                <del><p class="ml-1"><?php echo('$'.$producto->proPrecio);?></p></del>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star-half-alt text-primary mr-1"></small>
+                                                <small>(99)</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                    <?php
+                            }
                         }
                     }else{
                     ?>

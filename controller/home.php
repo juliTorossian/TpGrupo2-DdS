@@ -11,6 +11,7 @@
             $monedas            = monedaDAO::cargarMonedas();
             $a_productos_nuevos = ProductoDAO::cargarProductosNuevos();
             $a_productos_desta  = ProductoDAO::cargarProductosDestacados();
+            $usuario    = (isset($_SESSION['usuario'])) ? $_SESSION['usuario'] : null;
             require_once("view/home.php");
         }
 
@@ -18,6 +19,7 @@
             
             $categorias         = CategoriaDAO::cargarCategorias();
             $monedas            = monedaDAO::cargarMonedas();
+            $usuario    = (isset($_SESSION['usuario'])) ? $_SESSION['usuario'] : null;
             require_once("view/contacto.php");
         }
 

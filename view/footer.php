@@ -12,19 +12,19 @@
                 <div class="col-md-4 mb-5">
                     <h5 class="text-secondary text-uppercase mb-4">Acceso rápido</h5>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Productos</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Favoritos</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Carrito</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Ofertas</a>
-                        <a class="text-secondary" href="#"><i class="fa fa-angle-right mr-2"></i>Contacto</a>
+                        <a class="text-secondary mb-2" href="index.php"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                        <a class="text-secondary mb-2" href="index.php?controller=productoCON&action=verListaProductos"><i class="fa fa-angle-right mr-2"></i>Productos</a>
+                        <a class="text-secondary mb-2" onclick="noFunciona()"><i class="fa fa-angle-right mr-2"></i>Favoritos</a>
+                        <a class="text-secondary mb-2" href="index.php?controller=carritoCON&action=miCarrito"><i class="fa fa-angle-right mr-2"></i>Carrito</a>
+                        <a class="text-secondary mb-2" href="index.php?controller=productoCON&action=verOfertas"><i class="fa fa-angle-right mr-2"></i>Ofertas</a>
+                        <a class="text-secondary" href="index.php?controller=home&action=contacto"><i class="fa fa-angle-right mr-2"></i>Contacto</a>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
                     <h5 class="text-secondary text-uppercase mb-4">CUENTA</h5>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Logearse</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Registrarse</a>
+                        <a class="text-secondary mb-2" href="index.php?controller=usuarioCON&action=login"><i class="fa fa-angle-right mr-2"></i>Logearse</a>
+                        <a class="text-secondary mb-2" href="index.php?controller=usuarioCON&action=registrar"><i class="fa fa-angle-right mr-2"></i>Registrarse</a>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
@@ -54,7 +54,7 @@
             <p class="mb-md-0 text-center text-md-left text-secondary">
                 &copy; <a class="text-primary" href="#">Domain</a>. Todos los derechos reservados. Designed
                 by
-                <a class="text-primary" href="https://htmlcodex.com">HTML Codex</a>
+                <a class="text-primary" href="#">HTML Codex</a>
             </p>
         </div>
         <div class="col-md-6 px-xl-0 text-center text-md-right">
